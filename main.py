@@ -159,7 +159,7 @@ from selenium import webdriver
 #
 # # Close the browser
 # driver.quit()
-
+#
 with open("scrap.html", "r", encoding="utf-8") as file:
     html_content = file.read()
 
