@@ -173,7 +173,7 @@ table = soup.find("table", {'id':'restab'})
 # Find all tr elements with bgcolor='#f5f5f5' within the table
 rows = table.findAll('tr', {'bgcolor':'#f5f5f5'})
 
-with open('output.csv', 'w', newline='', encoding='utf-8') as csvfile:
+with open('output.csv', 'a', newline='', encoding='utf-8') as csvfile:
     # Create a CSV writer object
     csvwriter = csv.writer(csvfile)
 
