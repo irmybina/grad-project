@@ -15,7 +15,6 @@ options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option("useAutomationExtension", False)
 # options.add_argument("--proxy-server=194.28.209.178:9407")
 
-
 driver = webdriver.Chrome(options=options)
 
 stealth(driver,
@@ -86,7 +85,7 @@ def scrap():
         for row in rows:
             cells = row.find_all('td')
 
-            a = (str)(cells[2]).split('<br/>')
+            a = str(cells[2]).split('<br/>')
 
             name = BeautifulSoup(a[0]).get_text()
             university = BeautifulSoup(a[1]).get_text()
