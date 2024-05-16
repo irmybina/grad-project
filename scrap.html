@@ -1,11 +1,3578 @@
-<html dir="ltr"><head><meta http-equiv="origin-trial" content="Az520Inasey3TAyqLyojQa8MnmCALSEU29yQFW8dePZ7xQTvSt73pHazLFTK5f7SyLUJSo2uKLesEtEa9aUYcgMAAACPeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZyIsImV4cGlyeSI6MTcyNTQwNzk5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, user-scalable=yes"><title>Демонстрация ReCAPTCHA</title><link rel="stylesheet" href="https://www.gstatic.com/recaptcha/releases/V6_85qpc2Xf2sbe3xTnRte7m/demo__ltr.css" type="text/css"><script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/V6_85qpc2Xf2sbe3xTnRte7m/recaptcha__ru.js" crossorigin="anonymous" integrity="sha384-z79MUNFYRNpooKq8VDzv0mU3IWFUW4ZQSrqQ84hYePus8I1MzfahylOiwXjFpKRY" nonce=""></script><script src="/recaptcha/api.js" async="" defer="" nonce=""></script></head><body><div class="sample-form"><form id="recaptcha-demo-form" method="POST"><fieldset><legend>Пример формы с ReCAPTCHA</legend><ul><li><label for="input1">Имя</label><input class="jfk-textinput" id="input1" name="input1" type="text" value="Jane" disabled="" aria-disabled="true"></li><li><label for="input2">Фамилия</label><input class="jfk-textinput" id="input2" name="input2" type="text" value="Smith" disabled="" aria-disabled="true"></li><li><label for="input3">Электронная почта</label><input class="jfk-textinput" id="input3" name="input3" type="text" value="stopallbots@gmail.com" disabled="" aria-disabled="true"></li><li><p>Ваш любимый цвет:</p><label class="jfk-radiobutton-label" for="option1"><input class="jfk-radiobutton-checked" type="radio" id="option1" name="radios" value="option1" disabled="" aria-disabled="true" checked="" aria-checked="true">красный</label><label class="jfk-radiobutton-label" for="option2"><input class="jfk-radiobutton" type="radio" id="option2" name="radios" value="option2" disabled="" aria-disabled="true">зеленый</label></li><li><div class=""><!-- BEGIN: ReCAPTCHA implementation example. --><div id="recaptcha-demo" class="g-recaptcha" data-sitekey="6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-" data-callback="onSuccess" data-action="action"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-gilas47gylq6" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-&amp;co=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbTo0NDM.&amp;hl=ru&amp;v=V6_85qpc2Xf2sbe3xTnRte7m&amp;size=normal&amp;sa=action&amp;cb=ticq80vot6dv"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><script nonce="">
-                      var onSuccess = function(response) {
-                        var errorDivs = document.getElementsByClassName("recaptcha-error");
-                        if (errorDivs.length) {
-                          errorDivs[0].className = "";
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="canonical" href="https://2ip.ru/">
+
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5, shrink-to-fit=no">
+    <meta property="og:image" content="https://2ip.ru/images/open_graph_logo.png?v=1.1">
+
+
+    <link rel="image_src" href="https://2ip.ru/images/open_graph_logo.png?v=1.1">
+    <title>Узнать IP адрес</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Узнать IP адрес, измерить скорость интернета, подключить интернет, отзывы о провайдерах, рейтинг провайдеров" />
+    <meta name="keywords" content="ip, ip-адрес, интернет, скорость интернета, интернет провайдер, подключить интернет, отзывы о провайдерах, рейтинг провайдеров, интернет москва, провайдеры москвы" />
+    <meta name="author"  content="2ip.ru" />
+    <meta name="publisher"  content="2ip.ru" />
+    <meta name="copyright" content="2ip.ru" />
+    <meta name="robots" content="index,follow" />
+    <meta name="content-language" content="ru" />
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://2ip.ru/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://2ip.ru/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://2ip.ru/favicon-16x16.png">
+
+    <style>
+        body {
+            font-size: 14px;
+            color: #50565e;
+            font-family: 'Montserrat';
+            background-color: #f5f7f9; }
+
+        img {
+            max-width: 100%;
+        }
+
+        button {
+            -webkit-transition: 200ms ease-in-out;
+            -o-transition: 200ms ease-in-out;
+            transition: 200ms ease-in-out;
+        }
+
+        a {
+            color: #53c4eb;
+            font-family: Montserrat;
+            font-size: 13px;
+            font-weight: bold;
+        }
+            a:hover {
+                color: #53c4eb;
+                text-decoration: underline;
+                text-underline-offset: 3px;
+                text-decoration-thickness: 1px;
+            }
+
+        button:hover {
+            text-decoration: none;
+        }
+
+        h1, h1 a {
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2, h2 a {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        p, li, .page_registration, .page-pwned__result, .page-speed td {
+            font-family: Raleway;
+            font-feature-settings: 'lnum' 1;
+            font-size: 13px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.43;
+            letter-spacing: normal;
+            text-align: left;
+        }
+
+        p.headers {
+            font-family: Montserrat;
+            font-weight: bold;
+        }
+
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
+            padding: 0;
+        }
+
+        th {
+            font-family: Montserrat;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .page-wrapper {
+            max-width: 1920px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .row {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        .align-center {
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .between {
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .header {
+            background: #fff;
+            padding-top: 10px;
+            padding-bottom: 11px;
+            margin-bottom: 24px;
+        }
+            .header .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+        .logo {
+            margin-left: 14px;
+            margin-right: 52px;
+        }
+            .logo a {
+                display: inline-block;
+                width: 66px;
+                height: 59px;
+                background: transparent url("https://2ip.ru/img/icon/logo.svg") 0 0 no-repeat;
+                -webkit-background-size: 100%;
+                background-size: 100%;
+            }
+                .logo a img {
+                    display: none;
+                }
+
+        .menu {
+            padding-top: 3px;
+        }
+
+        .menu ul {
+            padding-left: 0;
+            list-style: none;
+            margin-bottom: 0;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+            .menu li {
+                margin-right: 54px;
+            }
+                .menu li a {
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-align: center;
+                    -webkit-align-items: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                }
+
+            .menu li:last-child {
+                margin-right: 0;
+            }
+
+            .menu .txt {
+                font-weight: bold;
+                font-size: 14px;
+                line-height: normal;
+                color: #50565e;
+            }
+
+            .menu .count {
+                font-size: 12px;
+                font-weight: bold;
+                -webkit-border-radius: 8.5px;
+                border-radius: 8.5px;
+                padding: 0px 9px;
+                line-height: 1.4;
+                background: #edeff1;
+                color: #B4BBC1;
+                margin-right: 8px;
+                -webkit-transition: 200ms ease-in-out;
+                -o-transition: 200ms ease-in-out;
+                text-decoration: none;
+                transition: 200ms ease-in-out;
+            }
+
+            .menu .txt-count {
+                color: white;
+                font-size: 11px;
+                padding-top: 0.5px;
+                padding-bottom: 0.5px;
+                background: #53c4eb;
+            }
+
+        .user {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 2px;
+            padding-right: 12px;
+        }
+            .user .login {
+                font-weight: bold;
+                border: solid 1px #edeff1;
+                -webkit-border-radius: 20px;
+                border-radius: 20px;
+                background: #fff;
+                padding: 8.5px 39px;
+                max-width: 120px;
+                cursor: pointer;
+                font-family: Raleway;
+                font-feature-settings: 'lnum' 1;
+            }
+
+            .user .open-menu {
+                width: 24px;
+                height: 24px;
+                border: none;
+                background: transparent url("https://2ip.ru/img/icon/24.svg") center no-repeat;
+                cursor: pointer;
+                margin-left: 23px;
+            }
+
+        .content {
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 -webkit-calc(80% - 30px);
+            -ms-flex: 0 0 calc(80% - 30px);
+            flex: 0 0 calc(80% - 30px);
+            max-width: -webkit-calc(80% - 30px);
+            max-width: calc(80% - 30px);
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .add-top {
+            width: 100%;
+            margin-bottom: 24px;
+        }
+            .add-top > img {
+                height: 100%;
+                width: 100%;
+            }
+
+        .isLogged {
+            display: none;
+        }
+
+        .isNonLogged {
+            display: inherit;
+        }
+
+        .bookmarks_add, .bookmarks_del {
+            display: inline-block;
+            height: 18px;
+            width: 18px;
+        }
+    </style>
+
+    <link rel="preload" href="https://2ip.ru/fonts/ip/icons.eot" as="font" type="application/vnd.ms-fontobject" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/ip/icons.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/ip/icons.woff" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/ip/icons.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/ip/icons.svg" as="font" type="image/svg+xml" crossorigin="anonymous">
+
+    <link rel="preload" href="https://2ip.ru/fonts/raleway/Raleway-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/raleway/Raleway-BoldItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/raleway/Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/raleway/Raleway-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/montserrat/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/montserrat/Montserrat-BoldItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/montserrat/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/montserrat/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/montserrat/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://2ip.ru/fonts/montserrat/Montserrat-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <script>
+        var BIS = BIS || {};
+        BIS.DEBUG = false;
+
+        BIS.namespace = function (nsString) {
+            var nsParts = nsString.split('.'),
+                parentPart = BIS,
+                i;
+
+            if (nsParts[0] === 'BIS') {
+                nsParts = nsParts.slice(1);
+            }
+
+            for (i=0; i<nsParts.length; ++i) {
+                if (typeof parentPart[nsParts[i]] === 'undefined') {
+                    parentPart[nsParts[i]] = {};
+                }
+                parentPart = parentPart[nsParts[i]];
+            }
+
+            return parentPart;
+        };
+
+        BIS.namespace('BIS.IP.core');
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const onClickList = document.getElementsByClassName('n09295a1c8470daa2');
+            Array.prototype.forEach.call(onClickList, function(el) {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    let parent = e.target.parentElement;
+                    if (parent.classList.contains('n4d554710')) {
+                                                    window.open('https://hidemyname.io/?utm_source=2ip.ru&utm_medium=display&utm_content=link_mainpage_dataprotect#527aabab86d48&chan=code25');
+                                            }
+
+                    if (parent.classList.contains('nc47bf9b0')) {
+                                                    window.open('https://hidemyname.io/?utm_source=2ip.ru&utm_medium=display&utm_content=link_mainpage_fixhost#527aabab86d48&chan=code24');
+                                            }
+
+                    if (e.target.classList.contains('nf8405374')) {
+                                                    window.location.href = 'https://hidemyname.io/?utm_source=2ip.ru&utm_medium=display&utm_content=link_mainpage_changeip#527aabab86d48&chan=code1';
+                                            }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        (function () {
+            var cache = {};
+
+            this.tmpl = function tmpl(str, data) {
+                var fn = !/\W/.test(str) ?
+                    cache[str] = cache[str] ||
+                        tmpl(document.getElementById(str).innerHTML) :
+
+                    new Function("obj",
+                        "var p=[],print=function(){p.push.apply(p,arguments);};" +
+                        "with(obj){p.push('" + str.replace(/[\r\t\n]/g, " ").split("<%").join("\t").replace(/((^|%>)[^\t]*)'/g, "$1\r").replace(/\t=(.*?)%>/g, "',$1,'").split("\t").join("');").split("%>").join("p.push('").split("\r").join("\\'") + "');}return p.join('');");
+
+                return data ? fn(data) : fn;
+            };
+        })();
+    </script>
+    <script defer src="https://2ip.ru/js/all-min-v2.js?v=1.166" id="allMinJs"></script>
+
+    <link rel="stylesheet preload" as="style" href="https://2ip.ru/css/all-min-v2.css?v=1.102">
+
+    <!-- Fixes automatically check the `font-display` -->
+    <style type='text/css'>
+        @font-face {
+            font-family: 'icons';
+            src: url('https://2ip.ru/fonts/ip/icons.woff2') format('woff2'),
+                url('https://2ip.ru/fonts/ip/icons.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+            <script async type="text/javascript" src="//s.luxcdn.com/t/226998/360_light.js"></script>
+
+
+    <script type="text/javascript">
+        window.PATH_WEB_LANG = 'https://2ip.ru/';
+
+        BIS.IP.core = {
+            isLogged: false,
+            clickedRecent: []
+        };
+
+            let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://ipv6.2ip.io', true);
+        xhr.setRequestHeader('X-REQUESTED-WITH', 'XMLHttpRequest');
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 400) {
+                let ipv6 = document.getElementsByClassName('ipv6-main')[0]
+                if (ipv6) {
+                    ipv6.style.display = 'flex';
+                    document.getElementById('ipv6-address').innerText = xhr.responseText;
+                    BIS.IP.core.ipv6 = xhr.responseText;
+                }
+            }
+        };
+
+        xhr.send();
+
+    </script>
+
+
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5564916-1"></script>
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-5564916-1');
+    </script>
+
+        <script>var _0xc37e=["","split","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/","slice","indexOf","","",".","pow","reduce","reverse","0"];function _0xe71c(d,e,f){var g=_0xc37e[2][_0xc37e[1]](_0xc37e[0]);var h=g[_0xc37e[3]](0,e);var i=g[_0xc37e[3]](0,f);var j=d[_0xc37e[1]](_0xc37e[0])[_0xc37e[10]]()[_0xc37e[9]](function(a,b,c){if(h[_0xc37e[4]](b)!==-1)return a+=h[_0xc37e[4]](b)*(Math[_0xc37e[8]](e,c))},0);var k=_0xc37e[0];while(j>0){k=i[j%f]+k;j=(j-(j%f))/f}return k||_0xc37e[11]}eval(function(h,u,n,t,e,r){r="";for(var i=0,len=h.length;i<len;i++){var s="";while(h[i]!==n[e]){s+=h[i];i++}for(var j=0;j<n.length;j++)s=s.replace(new RegExp(n[j],"g"),j);r+=String.fromCharCode(_0xe71c(s,e,10)-t)}return decodeURIComponent(escape(r))}("kZzkzckZkkZckZzzZckZZzZckZkkzckZzkkckZkkkckZZzkckzzkzckZzzzckZzkzckZzkzckzZZZckZZkzckZzkkckZkkkckZZzkckkzZzckZzZZckZZzzckZZzkckZzkkckZkkkckZzkkckZkZZcZZZzcZZzzckzZZkckkkzzckkzZkckzZZzckZkkZckZkkkckZZzkckZzkkckZkkkckZZzkckkzZzckZkkZckZzzzckZzkzckZzkkckZzkzcZZzzckzzzkcZkZkcZZZzcZZZkcZkZkckzZzzckzZzkcZkZkckZZZZcZkZkckZzZZckZzkZcZkZkcZZZzckZzkzckZkkZckZzzZckZZzZckZkkzckZzkkckZkkkckZZzkckzzkzckZzZzckZzkkckZZzkckzZZZckZkzZckZzkkckZkkzckZzkkckZkkkckZZzkckzZkZckZZZzckkzkzckZzkzcZZZzcZZkZckZzkzckkZZkckZzzZckZkzZckZzZZckZkZzckkZZkckZzzkckZZzZckZZzkckZZzkckZkkZckZkkkcZZkZcZZZkcZkZkckzZzzckzZzzcZkZkckZkkkckZZzZckZkzZckZkzZcZZZkcZkZkckZZZZcZkZkckZkZZckZzkkckZZzkckZZzZckZkZZckZkkkckzkZkcZkZkcZzzzkcZkZkckZkzZckZzkkckZZzkcZkZkckZzZzckZzkkckZZzkckzZZkckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckkkzkckZkZZckZkkZckZkZzckZzkkckZkZZckZZzkckZZZzcZkZkckzZzzcZkZkcZZZzckZzkkckZkzZcZZZkcZkZkckzZzzckzZzkcZkZkckZZZZcZkZkckZzZZckZzkZcZkZkcZZZzckZzkkckZkzZcZkZkcZZkkcZZkkcZkZkckZzkkckZkzZckzzkzckZzzZckZZzZckZkZZckZkZZckZzkkckZkkkckZZzkckkkkkckZZzkckZZZzckZkzZckZzkkcZZZkcZkZkckZZZZcZkZkckZkZZckZzkkckZZzkckZZzZckZkZZckZkkkcZkZkckZzkkckZkzZckzzkzckZzzZckZZzZckZkZZckZkZZckZzkkckZkkkckZZzkckkkkkckZZzkckZZZzckZkzZckZzkkckzzkzckZzkzckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckzkZkcZkZkcZzzzkcZkZkckZzkkckZkzZckZZzzckZzkkcZkZkckZzZZckZzkZcZkZkcZZZzckZZkkckZzZZckZkkkckZzkzckZkkZckZZkkckzzkzckZzZzckZzkkckZZzkckzZZzckZkkZckZkkzckZkZzckZZzZckZZzkckZzkkckZzkzckkkkkckZZzkckZZZzckZkzZckZzkkcZZZkcZkZkckZZZZcZkZkckZkZZckZzkkckZZzkckZZzZckZkZZckZkkkcZkZkckZZkkckZzZZckZkkkckZzkzckZkkZckZZkkckzzkzckZzZzckZzkkckZZzkckzZZzckZkkZckZkkzckZkZzckZZzZckZZzkckZzkkckZzkzckkkkkckZZzkckZZZzckZkzZckZzkkcZZZzckZzkkckZkzZckzzzkcZkZkckZkkkckZZzZckZkzZckZkzZcZZZkckzzkzckZzZzckZzkkckZZzkckkkzkckZkZZckZkkZckZkZzckZzkkckZkZZckZZzkckZZZzckkkZkckZzzzckZkzZckZZzZckZzkkcZZZzcZZzzckZzkzckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzcZZzzcZZZkckzkZkcZkZkcZzzzkcZkZkckZkZZckZzkkckZZzkckZZzZckZkZZckZkkkcZkZkcZZkZckZzzkckZkzZckZkkZckZzzZckZkzkcZZkZckzkZkcZkZkcZzzzkckzkZkcZkZkckZkzZckZzkkckZZzkcZkZkckZkkzckZkkZckZzzkckZzZZckZkzZckZzkkckkkZkckkkzkckkzZZcZkZkckzZzzcZkZkckZzkzckZkkZckZzzZckZZzZckZkkzckZzkkckZkkkckZZzkckzzkzckZkZkckZZzZckZzkkckZkZZckZZZzckkkkkckZzkkckZkzZckZzkkckZzzZckZZzkckZkkZckZkZZcZZZzcZZkZckzzkzckZzZZckZZzkckZzkkckZkkzckzzzZckZZkzckZkZzckZkkkcZZkZcZZZkckzkZkcZkZkckZkzZckZzkkckZZzkcZkZkckZzkzckZzkkckZZzzckZkzkckZZzkckZkkZckZkZzckkkZkckkkzkckkzZZcZkZkckzZzzcZkZkckZzkzckZkkZckZzzZckZZzZckZkkzckZzkkckZkkkckZZzkckzzkzckZkZkckZZzZckZzkkckZkZZckZZZzckkkkkckZzkkckZkzZckZzkkckZzzZckZZzkckZkkZckZkZZcZZZzcZZkZckzzkzckZzzzckZzkzckzzzZckZZzkckZzkkckZZzzckZZzkckzzzZckZZkzckZkZzckZkkkcZkZkckZzzzcZZkZcZZZkckzkZkcZkZkckZkzZckZzkkckZZzkcZkZkckZkkzckZzkkckZkkkckZZzZckkkkZckZzzzckZzzkcZkZkckzZzzcZkZkckZzkzckZkkZckZzzZckZZzZckZkkzckZzkkckZkkkckZZzkckzzkzckZkZkckZZzZckZzkkckZkZZckZZZzckkkkkckZzkkckZkzZckZzkkckZzzZckZZzkckZkkZckZkZZcZZZzcZZkZckzzkzckZZzkckZzzzckZzzkckZZzzcZkZkckzZzkcZkZkckzzkzckZzzzckZzkzckZZkzckkzZkckZzkkckZkkkckZZzZckkkkZckZzzzckZzzkcZZkZcZZZkckzkZkcZkZkckZkzZckZzkkckZZzkcZkZkckZzkzckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckkzZkckZkkZckZzzkckZzZZckZkzZckZzkkckkkZkckkkzkckkzZZcZkZkckzZzzcZkZkckZzZzckZzkkckZZzkckzZZkckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckkkzkckZkZZckZkkZckZkZzckZzkkckZkZZckZZzkckZZZzcZZZzckZkkzckZkkZckZzzkckZzZZckZkzZckZzkkckkkZkckkkzkckkzZZcZZZkckzkZkcZkZkckZkzZckZzkkckZZzkcZkZkckZzkzckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckzZZkckZzkkckZZzzckZkzkckZZzkckZkkZckZkZzckkkZkckkkzkckkzZZcZkZkckzZzzcZkZkckZzZzckZzkkckZZzkckzZZkckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckkkzkckZkZZckZkkZckZkZzckZzkkckZkZZckZZzkckZZZzcZZZzckZzkzckZzkkckZZzzckZkzkckZZzkckZkkZckZkZzckkkZkckkkzkckkzZZcZZZkckzkZkcZkZkckZkzZckZzkkckZZzkcZkZkckZzkzckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckkzZkckZzkkckZkkkckZZzZckkkkZckZzzzckZzzkcZkZkckzZzzcZkZkckZzZzckZzkkckZZzkckzZZkckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckkkzkckZkZZckZkkZckZkZzckZzkkckZkZZckZZzkckZZZzcZZZzckZkkzckZzkkckZkkkckZZzZckkkkZckZzzzckZzzkcZZZkckzkZkcZkZkckZzZZckZzkZcZkZkcZZZzcZZZzckZzkzckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckzZZkckZzkkckZZzzckZkzkckZZzkckZkkZckZkZzckkkZkckkkzkckkzZZcZkZkckzZzzckzZzzcZkZkcZZkZckZkkkckZkkZckZkkkckZzkkcZZkZcZkZkcZZkkcZZkkcZkZkckZzkzckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckkzZkckZkkZckZzzkckZzZZckZkzZckZzkkckkkZkckkkzkckkzZZcZkZkckzZzzckzZzzcZkZkcZZkZckZkkkckZkkZckZkkkckZzkkcZZkZcZZZkcZkZkcZzzzzcZzzzzcZkZkckZzkzckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzckkzZkckZzkkckZkkkckZZzZckkkkZckZzzzckZzzkcZkZkckzZzzckzZzzcZkZkcZZkZckZkkkckZkkZckZkkkckZzkkcZZkZcZZZkcZkZkckZZZZcZkZkckZkzZckZzkkckZZzkcZkZkckZzZZckZkZzcZkZkckzZzzcZkZkckZzkzckZkkZckZzzZckZZzZckZkkzckZzkkckZkkkckZZzkckzzkzckZkZkckZZzZckZzkkckZkZZckZZZzckkkkkckZzkkckZkzZckZzkkckZzzZckZZzkckZkkZckZkZZcZZZzcZZkZckzzkzckZzZZckZkZzcZZkZcZZZkckzkZkcZkZkckZzZZckZkZzckzzkzckZkZZckZzkkckZkkzckZkkZckZZkzckZzkkcZZZzcZZZkckzkZkcZkZkckZkzZckZzkkckZZzkcZkZkckZzzZckZkkZckZkZzckZZZzcZkZkckzZzzcZkZkckZzkzckZkkZckZzzZckZZzZckZkkzckZzkkckZkkkckZZzkckzzkzckZzZzckZzkkckZZzkckzZZZckZkzZckZzkkckZkkzckZzkkckZkkkckZZzkckZZzzckzZkZckZZZzckzZZzckZkzZckZzzzckZZzzckZZzzckkzZZckZzzzckZkkzckZzkkcZZZzcZZkZckZzzkckZZzkckZkkkckzzzZckZzzZckZkkZckZkZzckZZZzcZZkZcZZZkckkZkzckzzkZckkZkZckzkZkcZkZkckZzzZckZkkZckZkZzckZZZzckzzkzckZZzzckZZzkckZZZzckZkzZckZzkkckzzkzckZzkzckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzcZkZkckzZzzcZkZkcZZkZckZkkkckZkkZckZkkkckZzkkcZZkZckzkZkcZkZkckZkzZckZzkkckZZzkcZkZkckZzZZckZkZzckzZZzckZZzZckZZzkcZkZkckzZzzcZkZkckZzkzckZkkZckZzzZckZZzZckZkkzckZzkkckZkkkckZZzkckzzkzckZkZkckZZzZckZzkkckZkZZckZZZzckkkkkckZzkkckZkzZckZzkkckZzzZckZZzkckZkkZckZkZZcZZZzcZZkZckzzkzckZzZZckZkZzckkZZkckkZZkckZzzZckZZzZckZZzkcZZkZcZZZkckzkZkcZkZkckZzZZckZkZzckzZZzckZZzZckZZzkckzzkzckZZzzckZZzkckZZZzckZkzZckZzkkckzzkzckZzkzckZzZZckZZzzckZkZzckZkzZckZzzzckZZZzcZkZkckzZzzcZkZkcZZkZckZzzkckZkzZckZkkZckZzzZckZkzkcZZkZckzkZkcZkZkcZzzzkcZkZkcZzzzkcZZZkckzkZkc",50,"zkZcPhfbC",38,3,30))</script>
+
+
+
+</head>
+<body>
+
+<script async type='text/javascript' src='//s.luxcdn.com/t/226998/360_light.js'></script>
+<script class='__lxGc__' type='text/javascript'>
+    ((__lxGc__=window.__lxGc__||{'s':{},'b':0})['s']['_226998']=__lxGc__['s']['_226998']||{'b':{}})['b']['_706196']={'i':__lxGc__.b++};
+</script>
+
+<div class="page-wrapper">
+    <header class="header">
+        <div class="tabs">
+            <div class="advMenuTab"></div>
+        </div>
+
+        <div class="container">
+            <div class="row between align-center">
+                <div class="mobile-menu">
+                    <button type="button" aria-label="Открыть меню" data-toggle="main-menu"></button>
+                </div>
+                <div class="logo">
+                    <a href="https://2ip.ru/" aria-label="Home page"><img src="https://2ip.ru/img/icon/logo.svg" height="59" width="66" alt="logo"></a>
+                </div>
+                <div class="menu " id="main-menu">
+                    <style>
+                        .f663e406743476 {
+                            display: block;
                         }
-                        var errorMsgs = document.getElementsByClassName("recaptcha-error-message");
-                        if (errorMsgs.length) {
-                          errorMsgs[0].parentNode.removeChild(errorMsgs[0]);
+
+                        @media (max-width: 1023px) {
+                            .menu_isp .f663e406743476 {
+                                display: none;
+                            }
                         }
-                        };</script><!-- Optional noscript fallback. --><noscript><div style="width: 302px; height: 462px;"><iframe src="/recaptcha/api/fallback?k=6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-" frameborder="0" scrolling="no"></iframe><div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response"></textarea></div></div><br></noscript><!-- END: ReCAPTCHA implementation example. --></div></li><li><input id="recaptcha-demo-submit" type="submit" value="Отправить"></li></ul></fieldset></form></div></body></html>
+
+                        @media (min-width: 1024px) {
+                            .menu_isp .f663e406743476 {
+                                display: block;
+                            }
+                        }
+                    </style>
+                    <nav class="f663e406743476">
+                        <ul>
+                            <li>
+                                <a href="https://2ip.ru/tests/">
+                                    <span class="count">32</span>
+                                    <span class="txt">Тесты</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://finevpn.org/" target="_blank">
+                                    <span class="count">1</span>
+                                    <span class="txt">FineVPN</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://2ip.ru/services/">
+                                    <span class="count">15</span>
+                                    <span class="txt">Сервисы</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://2ip.ru/analytics/">
+                                    <span class="count">6</span>
+                                    <span class="txt">Аналитика</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://2ip.ru/isp-reviews/">
+                                    <span class="count">4k</span>
+                                    <span class="txt">Провайдеры</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://2ip.ru/fun/">
+                                    <span class="count">7</span>
+                                    <span class="txt">Забавы</span>
+                                </a>
+                            </li>
+
+                                                    <li>
+                                <a href="https://2ip.ru/article/">
+                                    <span class="count">70</span>
+                                    <span class="txt">Статьи</span>
+                                </a>
+                            </li>
+                                                </ul>
+                    </nav>
+
+
+                </div>
+                <div class="user">
+                    <span class="menu-logged-member"
+                          id="toggle__menu-signin">
+                        <span class="isLogged"
+                              id="member-email">
+                                                    </span>
+
+                        <button id="member-signin-button"
+                                type="button"
+                                class="login isNonLogged">Войти                        </button>
+                    </span>
+
+                    <button type="button" aria-label="Открыть меню" class="open-menu" id="toggle__menu-bookmarks"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        .right-panel {
+            overflow-y: scroll;
+        }
+    </style>
+
+
+
+<style>
+    .menu-header__bookmarks_ext {
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .menu-header__close_bookmarks {
+        margin-right: 20px;
+    }
+        .menu-header__close_bookmarks i {
+            color: #50565e;
+            font-size: 30px;
+            height: 20px;
+            width: 24px;
+            display: block;
+        }
+
+    .menu-header__profile {
+        margin-right: 20px;
+    }
+        .menu-header__profile i {
+            color: #50565e;
+            font-size: 23px;
+            height: 24px;
+            width: 24px;
+            display: block;
+        }
+
+        a.menu-header__profile:hover,
+        a.menu-header__close_bookmarks:hover,
+        a.menu-header__close:hover {
+            text-decoration: none;
+        }
+
+        .menu-header__close_bookmarks:hover i,
+        .menu-header__profile:hover i {
+            color: #53c4eb;
+        }
+</style>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+
+        let headerBookmarks = document.getElementsByClassName('menu-header__close_bookmarks');
+        Array.prototype.forEach.call(headerBookmarks, function(el) {
+            el.addEventListener('click', () => {
+                document.getElementById('toggle__menu-bookmarks').click();
+            });
+        });
+
+        const profile = document.getElementsByClassName('menu-header__profile');
+        if (profile.length != 0) {
+            profile[0].addEventListener('click', () => {
+                document.getElementById('toggle__menu-bookmarks').click();
+                document.getElementById('toggle__menu-signin').click();
+            });
+        }
+
+        document.getElementsByClassName('head-menu_item-favorite')[0]
+            .addEventListener('click', () => {
+                document.getElementById('result-recent').style.display = 'none';
+                document.getElementById('result-fav').style.display = 'flex';
+
+                document.getElementsByClassName('head-menu_item-recent')[0].classList.remove('active');
+                document.getElementsByClassName('head-menu_item-favorite')[0].classList.add('active');
+            });
+
+        document.getElementsByClassName('head-menu_item-recent')[0]
+            .addEventListener('click', () => {
+                document.getElementById('result-recent').style.display = 'flex';
+                document.getElementById('result-fav').style.display = 'none';
+
+                document.getElementsByClassName('head-menu_item-recent')[0].classList.add('active');
+                document.getElementsByClassName('head-menu_item-favorite')[0].classList.remove('active');
+            });
+    });
+</script>
+
+<div class="right" id="menu-bookmarks">
+    <div class="menu-overlay menu-header__close_bookmarks"></div>
+    <div class="right-panel">
+        <div class="menu-header menu-header__bookmarks_ext">
+                    <div class="menu-header__profile clickable_link">
+                <i class="ip-icon-profile"></i>
+            </div>
+                    <div class="menu-header__close_bookmarks clickable_link">
+                <i class="ip-icon-close"></i>
+            </div>
+        </div>
+
+        <ul class="head-menu">
+            <li class="head-menu_item active head-menu_item-favorite"><span>Избранное</span></li>
+            <li class="head-menu_item head-menu_item-recent"><span>Недавние</span></li>
+        </ul>
+
+        <ul class="right-menu" id="result-fav">
+                    </ul>
+
+        <ul class="right-menu hidden" id="result-recent">
+                    </ul>
+    </div>
+</div>
+
+<script type="text/html" id="favoritesTemplate">
+    <li class="test-item test-item-<%=id%>" data-id="<%=id%>">
+        <a class="txt" href="<%=link%>">
+            <i class="ip-icon-<%=id%>"></i>
+            <%=name%>
+        </a>
+        <div class="fav fav-active bookmarks_del ip-icon-star-non-filled" data-flink="<%=flink%>" data-fid="<%=id%>"></div>
+    </li>
+</script>
+
+<style>
+    .clickable_link:hover {
+        cursor: pointer;
+    }
+
+    .form-group-email {
+        margin: 40px 0 0 0;
+    }
+
+    .about-signup {
+        color: #c8ccd1;
+        font-size: 13px;
+        font-family: Raleway;
+        font-feature-settings: 'lnum' 1;
+        line-height: 16px;
+        text-align: left;
+    }
+
+    .about-signup li {
+        margin: 0 0 20px 0;
+    }
+
+    .menu-header {
+        display: flex;
+        x-justify-content: space-around;
+        x-align-items: stretch;
+        max-width: 1200px;
+        height: 79px;
+    }
+        .menu-header__close {
+            color: #50565e;
+            padding: 25px 0 0 20px;
+            text-decoration: none;
+            flex: 0 0 50px;
+        }
+            .menu-header__close i {
+                display: block;
+                font-size: 30px;
+            }
+
+        .menu-header__name {
+            color: #50565e;
+            font-size: 14px;
+            display: inline-block;
+            margin: 28px 0 0 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .menu-header__bookmarks {
+            color: #50565e;
+            width: 50px;
+            flex: 0 0 50px;
+            padding: 27px 20px 0 0;
+            text-decoration: none;
+        }
+            .menu-header__bookmarks:hover {
+                text-decoration: none;
+            }
+
+            .menu-header__bookmarks i {
+                display: block;
+                font-size: 24px;
+            }
+
+    .right-panel__about_signup {
+        color: #c8ccd1;
+        text-align: center;
+    }
+
+    .menu-links {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+        width: 300px;
+    }
+        .menu-links i {
+            color: #50565e;
+            font-size: 20px;
+            vertical-align: middle;
+            margin: 0 15px 0 0;
+        }
+
+        .menu-links a {
+            color: #50565e;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: bold;
+
+            border-bottom: 1px solid #edeff1;
+            padding: 20px 0 20px 60px;
+            text-align: left;
+            width: 100%;
+        }
+            .menu-links a:hover,
+            .menu-links a:hover i {
+                color: #53c4eb;
+            }
+
+            .menu-links a:first-child {
+                border-top: 1px solid #edeff1;
+            }
+
+            .menu-links a i {
+                display: inline-block;
+                line-height: 22px;
+                height: 22px;
+            }
+
+        .menu-links .ip-icon-servact {
+            font-size: 16px;
+        }
+</style>
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+
+    let headerClose = document.getElementsByClassName('menu-header__close');
+    Array.prototype.forEach.call(headerClose, function(el) {
+        el.addEventListener('click', () => {
+            document.getElementById('menu-signin').classList.toggle('open');
+            document.getElementsByTagName('body')[0].style.overflow = '';
+        });
+    });
+
+    document.getElementsByClassName('menu-header__bookmarks')[0]
+        .addEventListener('click', () => {
+            document.getElementById('menu-signin').classList.toggle('open');
+            document.getElementsByTagName('body')[0].style.overflow = '';
+
+        document.getElementById('toggle__menu-bookmarks').click();
+    });
+
+    let signInForm = document.getElementById('main-signin');
+    if (signInForm != null) {
+        signInForm
+            .addEventListener('submit', (e) => {
+                let formData = new FormData(signInForm);
+                let request = new XMLHttpRequest();
+                request.open('POST', 'https://2ip.ru/?area=signIn');
+                request.onload = function () {
+                    let result = JSON.parse(request.response);
+
+                    if ('success' in result) {
+                        successLogin(result);
+                    } else {
+                        errorLogin();
+                    }
+                };
+                request.setRequestHeader('X-REQUESTED-WITH', 'XMLHttpRequest');
+                request.send(formData);
+                e.preventDefault();
+            });
+    }
+
+    let errorLogin = () => {
+        iziToast.error(Object.assign({
+            title: 'Неправильно введён email или пароль',
+            backgroundColor: '#FF4136'
+        }, {
+            timeout: 3000,
+            position: 'topCenter'
+        }));
+    };
+
+    let successLogin = (result) => {
+        let render = tmpl('menuLinksTemplate', {result: result});
+        let menuHeader = document.getElementById('main-user');
+
+        let newMenuLinks = document.createElement('div');
+        newMenuLinks.classList.add('menu-links');
+        newMenuLinks.innerHTML = render;
+
+        menuHeader.parentNode.insertBefore(newMenuLinks, menuHeader.nextSibling);
+        signInForm.style.display = 'none';
+
+        document.getElementById('member-signin-button').style.display = 'none';
+        document.getElementById('member-email').style.display = 'inline';
+
+        document.getElementsByClassName('menu-header__name')[0].innerText = result['email'];
+        document.getElementById('member-email').innerText = result['email'];
+
+        result['bookmarks'].forEach((el) => {
+            Bookmarks.load(el.id, el.name, el.link);
+        });
+
+        BIS.IP.core.isLogged = true;
+
+        let captchaOnPage = document.getElementById('form-captcha');
+        if (captchaOnPage != null) {
+            captchaOnPage.remove();
+        }
+    };
+});
+</script>
+<style>
+    .right-panel .form-group {
+        margin: 20px 0;
+        padding: 0 20px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .about-signup li {
+        padding: 0 20px 0 0;
+    }
+</style>
+
+<div class="right" id="menu-signin">
+    <div class="menu-overlay menu-header__close"></div>
+    <div class="right-panel">
+
+<div class="menu-header" id="main-user">
+    <div class="menu-header__close clickable_link">
+        <i class="ip-icon-close"></i>
+    </div>
+
+    <p class="menu-header__name headers">
+                    Вход в аккаунт            </p>
+
+    <div class="menu-header__bookmarks clickable_link">
+        <i class="ip-icon-bookmarks"></i>
+    </div>
+</div>
+            <form class="form-center" action="/" method="post" name="main-signin" id="main-signin">
+            <div class="form-group">
+                <input class="form-input" type="email" placeholder="Введите E-mail …" name="memberEmail" autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <input class="form-input" type="password" placeholder="Введите пароль …" name="password" autocomplete="password">
+            </div>
+
+            <div class="right-panel__password-recovery">
+                <a href="https://2ip.ru/password-recover/">Забыли пароль?</a>
+            </div>
+
+            <div class="form-group">
+                <input class="form-button form-button-blue" type="submit" value="Войти">
+            </div>
+
+            <div class="form-group">
+                <label for="remember" class="form-label">
+                    <input id="remember" type="checkbox" class="form" checked="checked" name="longSave" /> Запомнить                </label>
+            </div>
+
+            <div class="form-group">
+                <a href="https://2ip.ru/registration/" class="form-button form-button-white">Регистрация</a>
+            </div>
+
+            <br>
+
+            <p class="right-panel__about_signup headers">Что дает регистрация?</p>
+
+            <ol class="about-signup">
+                <li>После регистрации вы получаете возможность полноценно использовать все сервисы сайта. Все сервисы доступны без необходимости ввода антиспам картинки.</li>
+                <li>Каждый ваш замер скорости интернет соединения сохраняется и отображается в истории замеров. В любой момент вы можете просмотреть любой замер, когда бы он не был сделан.</li>
+                <li>Усредненная статистика замеров скорости интернет соединения. Вам доступны средние показания, высчитанные на основе всей истории ваших измерений.</li>
+                <li>Подписка на новости. Вы одним из первых узнаете о новых сервисах нашего сайта.</li>
+                <li>"2IP шпион" - новый сервис, который доступен только зарегистрированным пользователям. Хотите узнать побольше о вашем знакомом, собеседнике, однокласснике, партнере или о любом другом человеке? Его IP адрес, месторасположения, интернет провайдера, какой он использует браузер и операционную систему? Все это вы сможете узнать, используя "2IP шпион".</li>
+                <li>Мы постоянно работаем над усовершенствованием старых и добавлением новых сервисов. Как зарегистрированный пользователь нашего сайта вы первый будете в курсе всех изменений.</li>
+            </ol>
+        </form>
+        </div>
+</div>
+
+<script type="text/html" id="menuLinksTemplate">
+    <a href="https://2ip.ru/profile/"><i class="ip-icon-profile"></i>Профиль</a>
+
+    <% if (result.isISP) { %>
+        <a href="https://2ip.ru/isp-ip/"><i class="ip-icon-menu-iprange"></i>IP-диапазоны</a>
+        <a href="https://2ip.ru/isp-news/"><i class="ip-icon-menu-news"></i>Новости</a>
+
+                    <a href="https://2ip.ru/isp-tariffs/"><i class="ip-icon-menu-tariffs"></i>Тарифы</a>
+
+        <a href="https://2ip.ru/isp-platforms/"><i class="ip-icon-menu-platforms"></i>Площадки</a>
+
+        <% if (result.isShowISPBase) { %>
+        <% } %>
+
+        <a href="https://2ip.ru/isp-responses/"><i class="ip-icon-menu-review"></i>Отзывы</a>
+    <% } else { %>
+        <a href="https://2ip.ru/speed-history/"><i class="ip-icon-stat-3"></i>История</a>
+        <a href="https://2ip.ru/member-responses/"><i class="ip-icon-isp-reviews"></i>Мои отзывы</a>
+        <a href="https://2ip.ru/strange-ip/"><i class="ip-icon-strange-ip"></i>2IP Шпион</a>
+    <% } %>
+
+    <a href="https://2ip.ru/invites/">
+        <i class="ip-icon-mail-sending-check"></i> Приглашения    </a>
+
+    <a href="javascript:document.forms[`exitForm`].submit()">
+        <i class="ip-icon-signout"></i> Выйти из аккаунта    </a>
+
+    <form name="exitForm" method="post">
+        <input type="hidden" value="1" name="exit"/>
+    </form>
+</script>
+
+<style>
+    .n09295a1c8470daa2 {
+        cursor: pointer;
+    }
+
+    .nb59689cbcbe4:before {
+        display: block;
+        content: ' ';
+        background-image: url('/svg/link23.svg');
+        background-size: 23px 23px;
+        height: 23px;
+        width: 23px;
+    }
+
+    .n88063651ab404cfb4a16:before {
+        display: block;
+        content: ' ';
+        background-image: url('/svg/port-scaner.svg');
+        background-size: 23px 23px;
+        height: 23px;
+        width: 23px;
+    }
+
+    .nddf11f7908883:before {
+        display: block;
+        content: ' ';
+        background-image: url('/svg/proxy.svg');
+        background-size: 23px 23px;
+        height: 23px;
+        width: 23px;
+    }
+
+    .ip-icon-ad-eye:before {
+        display: block;
+        content: ' ';
+        background-image: url('/svg/x-eye.svg');
+        background-size: 23px 23px;
+        height: 23px;
+        width: 23px;
+    }
+
+    .nc47bf9b0 {
+        display: inline-block;
+    }
+
+    /* alert link */
+    .nd023f3d71 {
+        color: #e2cf3b;
+        font-size: 13px;
+        font-weight: 700;
+        display: inline-block;
+        position: relative;
+        transition: 0ms ease-in-out;
+        margin-left: 17px;
+        text-decoration: none;
+    }
+        .nd023f3d71 span {
+            border-bottom: 1px solid #e2cf3b;
+        }
+
+        .nd023f3d71:hover {
+            color: #e2cf3b;
+            text-decoration: none;
+        }
+
+        a.nd023f3d71:hover span {
+            text-decoration: none;
+        }
+
+    @media (max-width: 767px) {
+        .nd023f3d71 {
+            font-size: 0;
+            margin-left: 0;
+        }
+            .nd023f3d71:before {
+                left: 2px;
+                top: -12px;
+            }
+
+        .main-ip_item .value .nd023f3d71 {
+            position: absolute;
+            top: 14px;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .nd023f3d71 {
+            font-size: 0;
+        }
+            .nd023f3d71:before {
+                left: 0;
+                top: -12px;
+            }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1339px) {
+        .nd023f3d71 {
+            font-size: 0;
+        }
+            .nd023f3d71:before {
+                left: 0;
+                top: -12px;
+            }
+    }
+
+    /* ip links item */
+    .u663e406743862, .g663e406743861 {
+        position: relative;
+        transition: 200ms ease-in-out;
+        margin-bottom: 27px;
+    }
+        .u663e406743862:last-child, .g663e406743861:last-child {
+            margin-bottom: 0;
+        }
+
+        .u663e406743862:before, .g663e406743861:before {
+            position: absolute;
+            left: 0px;
+            top: -1px;
+        }
+
+         .u663e406743862 a, .g663e406743861 a {
+            border-bottom: none;
+            font-size: 13px;
+            font-weight: 700;
+            color: #50565e;
+        }
+
+        .u663e406743862:hover a, .g663e406743861:hover a {
+            border-bottom: 1px solid #50565e;
+            text-decoration: none;
+        }
+
+        .u663e406743862 i, .g663e406743861 i {
+            color: #c8ccd1;
+            display: inline-block;
+            font-size: 25px;
+            height: 26px;
+            line-height: 25px;
+            margin: 0 20px 0px 0;
+            vertical-align: middle;
+            width: 26px;
+        }
+
+        .u663e406743862 .ip-icon-link232, .g663e406743861 .ip-icon-link232 {
+            font-size: 18px;
+        }
+
+    @media (max-width: 1023px) {
+        .u663e406743862, .g663e406743861 {
+            display: inline-block;
+        }
+    }
+
+    .ip-links_item__clickable {
+        display: inline-block;
+        border-bottom: none;
+        font-size: 13px;
+        font-weight: 700;
+        color: #50565e;
+    }
+        .ip-links_item__clickable:hover {
+            border-bottom: 1px solid #50565e;
+            cursor: pointer;
+        }
+
+    .value-custom:before {
+        background-size: 23px 23px;
+        content:"";
+        height: 23px;
+        left: 0;
+        position: absolute;
+        top: -2px;
+        width: 23px;
+    }
+
+    .main__proxy-check {
+        font-size: 12px;
+        font-style: italic;
+        margin-top: 2px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .main-ip-history__list__clear {
+        margin: 0 0 10px 0;
+    }
+
+    .main-ip-history__list li {
+        font-size: 15px;
+        padding: 3px 0;
+        text-align: center;
+    }
+
+
+    .g663e406743861 i {
+        color: #9b019b;
+    }
+        .g663e406743861 div {
+            color: #9b019b;
+            border-bottom: 1px solid #9b019b;
+            display: inline;
+            font-weight: bold;
+        }
+        .g663e406743861:hover div {
+            border-bottom: 1px solid #9b019b;
+        }
+
+    .q663e406743863 {
+        color: #50565e;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 0 0 0 18px;
+    }
+
+    @media (max-width: 767px) {
+        .q663e406743863 {
+            padding: 0;
+        }
+    }
+
+    .n58774c0338ffd5ff5c {
+        text-align: left;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .n58774c0338ffd5ff5c {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .n58774c0338ffd5ff5c {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-right: 6px;
+        }
+    }
+
+            /**
+         * IP links
+         */
+        .n58774c0338ffd5ff5c .u663e406743862:first-child,
+        .n58774c0338ffd5ff5c .g663e406743861:first-child {
+            position: relative;
+            text-align: left;
+                }
+
+        .n58774c0338ffd5ff5c .u663e406743862:nth-of-type(2),
+        .n58774c0338ffd5ff5c .g663e406743861:nth-of-type(2) {
+            position: relative;
+            text-align: left;
+                        }
+
+        .n58774c0338ffd5ff5c .u663e406743862:last-child,
+        .n58774c0338ffd5ff5c .g663e406743861:last-child {
+            position: relative;
+            text-align: left;
+                }
+    </style>
+<!-- clipboard.js v1.6 -->
+<script type="text/javascript">!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var t;t="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this,t.Clipboard=e()}}(function(){var e,t,n;return function e(t,n,i){function o(a,c){if(!n[a]){if(!t[a]){var l="function"==typeof require&&require;if(!c&&l)return l(a,!0);if(r)return r(a,!0);var s=new Error("Cannot find module '"+a+"'");throw s.code="MODULE_NOT_FOUND",s}var u=n[a]={exports:{}};t[a][0].call(u.exports,function(e){var n=t[a][1][e];return o(n?n:e)},u,u.exports,e,t,n,i)}return n[a].exports}for(var r="function"==typeof require&&require,a=0;a<i.length;a++)o(i[a]);return o}({1:[function(e,t,n){function i(e,t){for(;e&&e!==document;){if(e.matches(t))return e;e=e.parentNode}}if(Element&&!Element.prototype.matches){var o=Element.prototype;o.matches=o.matchesSelector||o.mozMatchesSelector||o.msMatchesSelector||o.oMatchesSelector||o.webkitMatchesSelector}t.exports=i},{}],2:[function(e,t,n){function i(e,t,n,i,r){var a=o.apply(this,arguments);return e.addEventListener(n,a,r),{destroy:function(){e.removeEventListener(n,a,r)}}}function o(e,t,n,i){return function(n){n.delegateTarget=r(n.target,t),n.delegateTarget&&i.call(e,n)}}var r=e("./closest");t.exports=i},{"./closest":1}],3:[function(e,t,n){n.node=function(e){return void 0!==e&&e instanceof HTMLElement&&1===e.nodeType},n.nodeList=function(e){var t=Object.prototype.toString.call(e);return void 0!==e&&("[object NodeList]"===t||"[object HTMLCollection]"===t)&&"length"in e&&(0===e.length||n.node(e[0]))},n.string=function(e){return"string"==typeof e||e instanceof String},n.fn=function(e){var t=Object.prototype.toString.call(e);return"[object Function]"===t}},{}],4:[function(e,t,n){function i(e,t,n){if(!e&&!t&&!n)throw new Error("Missing required arguments");if(!c.string(t))throw new TypeError("Second argument must be a String");if(!c.fn(n))throw new TypeError("Third argument must be a Function");if(c.node(e))return o(e,t,n);if(c.nodeList(e))return r(e,t,n);if(c.string(e))return a(e,t,n);throw new TypeError("First argument must be a String, HTMLElement, HTMLCollection, or NodeList")}function o(e,t,n){return e.addEventListener(t,n),{destroy:function(){e.removeEventListener(t,n)}}}function r(e,t,n){return Array.prototype.forEach.call(e,function(e){e.addEventListener(t,n)}),{destroy:function(){Array.prototype.forEach.call(e,function(e){e.removeEventListener(t,n)})}}}function a(e,t,n){return l(document.body,e,t,n)}var c=e("./is"),l=e("delegate");t.exports=i},{"./is":3,delegate:2}],5:[function(e,t,n){function i(e){var t;if("SELECT"===e.nodeName)e.focus(),t=e.value;else if("INPUT"===e.nodeName||"TEXTAREA"===e.nodeName)e.focus(),e.setSelectionRange(0,e.value.length),t=e.value;else{e.hasAttribute("contenteditable")&&e.focus();var n=window.getSelection(),i=document.createRange();i.selectNodeContents(e),n.removeAllRanges(),n.addRange(i),t=n.toString()}return t}t.exports=i},{}],6:[function(e,t,n){function i(){}i.prototype={on:function(e,t,n){var i=this.e||(this.e={});return(i[e]||(i[e]=[])).push({fn:t,ctx:n}),this},once:function(e,t,n){function i(){o.off(e,i),t.apply(n,arguments)}var o=this;return i._=t,this.on(e,i,n)},emit:function(e){var t=[].slice.call(arguments,1),n=((this.e||(this.e={}))[e]||[]).slice(),i=0,o=n.length;for(i;i<o;i++)n[i].fn.apply(n[i].ctx,t);return this},off:function(e,t){var n=this.e||(this.e={}),i=n[e],o=[];if(i&&t)for(var r=0,a=i.length;r<a;r++)i[r].fn!==t&&i[r].fn._!==t&&o.push(i[r]);return o.length?n[e]=o:delete n[e],this}},t.exports=i},{}],7:[function(t,n,i){!function(o,r){if("function"==typeof e&&e.amd)e(["module","select"],r);else if("undefined"!=typeof i)r(n,t("select"));else{var a={exports:{}};r(a,o.select),o.clipboardAction=a.exports}}(this,function(e,t){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var o=n(t),r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},a=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),c=function(){function e(t){i(this,e),this.resolveOptions(t),this.initSelection()}return a(e,[{key:"resolveOptions",value:function e(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};this.action=t.action,this.emitter=t.emitter,this.target=t.target,this.text=t.text,this.trigger=t.trigger,this.selectedText=""}},{key:"initSelection",value:function e(){this.text?this.selectFake():this.target&&this.selectTarget()}},{key:"selectFake",value:function e(){var t=this,n="rtl"==document.documentElement.getAttribute("dir");this.removeFake(),this.fakeHandlerCallback=function(){return t.removeFake()},this.fakeHandler=document.body.addEventListener("click",this.fakeHandlerCallback)||!0,this.fakeElem=document.createElement("textarea"),this.fakeElem.style.fontSize="12pt",this.fakeElem.style.border="0",this.fakeElem.style.padding="0",this.fakeElem.style.margin="0",this.fakeElem.style.position="absolute",this.fakeElem.style[n?"right":"left"]="-9999px";var i=window.pageYOffset||document.documentElement.scrollTop;this.fakeElem.addEventListener("focus",window.scrollTo(0,i)),this.fakeElem.style.top=i+"px",this.fakeElem.setAttribute("readonly",""),this.fakeElem.value=this.text,document.body.appendChild(this.fakeElem),this.selectedText=(0,o.default)(this.fakeElem),this.copyText()}},{key:"removeFake",value:function e(){this.fakeHandler&&(document.body.removeEventListener("click",this.fakeHandlerCallback),this.fakeHandler=null,this.fakeHandlerCallback=null),this.fakeElem&&(document.body.removeChild(this.fakeElem),this.fakeElem=null)}},{key:"selectTarget",value:function e(){this.selectedText=(0,o.default)(this.target),this.copyText()}},{key:"copyText",value:function e(){var t=void 0;try{t=document.execCommand(this.action)}catch(e){t=!1}this.handleResult(t)}},{key:"handleResult",value:function e(t){this.emitter.emit(t?"success":"error",{action:this.action,text:this.selectedText,trigger:this.trigger,clearSelection:this.clearSelection.bind(this)})}},{key:"clearSelection",value:function e(){this.target&&this.target.blur(),window.getSelection().removeAllRanges()}},{key:"destroy",value:function e(){this.removeFake()}},{key:"action",set:function e(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"copy";if(this._action=t,"copy"!==this._action&&"cut"!==this._action)throw new Error('Invalid "action" value, use either "copy" or "cut"')},get:function e(){return this._action}},{key:"target",set:function e(t){if(void 0!==t){if(!t||"object"!==("undefined"==typeof t?"undefined":r(t))||1!==t.nodeType)throw new Error('Invalid "target" value, use a valid Element');if("copy"===this.action&&t.hasAttribute("disabled"))throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');if("cut"===this.action&&(t.hasAttribute("readonly")||t.hasAttribute("disabled")))throw new Error('Invalid "target" attribute. You can\'t cut text from elements with "readonly" or "disabled" attributes');this._target=t}},get:function e(){return this._target}}]),e}();e.exports=c})},{select:5}],8:[function(t,n,i){!function(o,r){if("function"==typeof e&&e.amd)e(["module","./clipboard-action","tiny-emitter","good-listener"],r);else if("undefined"!=typeof i)r(n,t("./clipboard-action"),t("tiny-emitter"),t("good-listener"));else{var a={exports:{}};r(a,o.clipboardAction,o.tinyEmitter,o.goodListener),o.clipboard=a.exports}}(this,function(e,t,n,i){"use strict";function o(e){return e&&e.__esModule?e:{default:e}}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function a(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function c(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}function l(e,t){var n="data-clipboard-"+e;if(t.hasAttribute(n))return t.getAttribute(n)}var s=o(t),u=o(n),f=o(i),d=function(){function e(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(t,n,i){return n&&e(t.prototype,n),i&&e(t,i),t}}(),h=function(e){function t(e,n){r(this,t);var i=a(this,(t.__proto__||Object.getPrototypeOf(t)).call(this));return i.resolveOptions(n),i.listenClick(e),i}return c(t,e),d(t,[{key:"resolveOptions",value:function e(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};this.action="function"==typeof t.action?t.action:this.defaultAction,this.target="function"==typeof t.target?t.target:this.defaultTarget,this.text="function"==typeof t.text?t.text:this.defaultText}},{key:"listenClick",value:function e(t){var n=this;this.listener=(0,f.default)(t,"click",function(e){return n.onClick(e)})}},{key:"onClick",value:function e(t){var n=t.delegateTarget||t.currentTarget;this.clipboardAction&&(this.clipboardAction=null),this.clipboardAction=new s.default({action:this.action(n),target:this.target(n),text:this.text(n),trigger:n,emitter:this})}},{key:"defaultAction",value:function e(t){return l("action",t)}},{key:"defaultTarget",value:function e(t){var n=l("target",t);if(n)return document.querySelector(n)}},{key:"defaultText",value:function e(t){return l("text",t)}},{key:"destroy",value:function e(){this.listener.destroy(),this.clipboardAction&&(this.clipboardAction.destroy(),this.clipboardAction=null)}}]),t}(u.default);e.exports=h})},{"./clipboard-action":7,"good-listener":4,"tiny-emitter":6}]},{},[8])(8)});</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const bodyBlackout = document.querySelector('.body-blackout');
+        const body = document.body;
+
+        const close = () => {
+            document.getElementsByClassName('main-ip-history')[0].classList.toggle('is_visible');
+            bodyBlackout.classList.remove('is-blacked-out');
+            body.classList.remove('main-no-scroll');
+        };
+
+        document.getElementById('history-button').addEventListener('click', () => {
+            document.getElementsByClassName('main-ip-history')[0].classList.toggle('is_visible');
+            bodyBlackout.classList.add('is-blacked-out');
+            body.classList.add('main-no-scroll');
+        });
+
+        document.getElementsByClassName('main-ip-history__close')[0].addEventListener('click', () => {
+            close();
+        });
+
+        if (bodyBlackout) {
+            bodyBlackout.addEventListener('click', () => {
+                close();
+            });
+        }
+
+        let ipElem = document.getElementById('d_clip_button');
+        ipElem.style.cursor = 'pointer';
+        new Clipboard(ipElem, {
+            text: function () {
+
+                iziToast.success(Object.assign({
+                    title: 'IP успешно скопирован',
+                    backgroundColor: '#53c4eb'
+                }, {
+                    timeout: 3000,
+                    position: 'topCenter'
+                }));
+
+                return '194.28.209.178'
+            }
+        });
+
+        let ipv6Elem = document.getElementById('d_clip_button_v6');
+        ipv6Elem.style.cursor = 'pointer';
+        new Clipboard(ipv6Elem, {
+            text: function () {
+
+                iziToast.success(Object.assign({
+                    title: 'IP успешно скопирован',
+                    backgroundColor: '#53c4eb'
+                }, {
+                    timeout: 3000,
+                    position: 'topCenter'
+                }));
+
+                return BIS.IP.core.ipv6;
+            }
+        });
+
+        let infoElem = document.getElementById('btn-copy-info');
+        new Clipboard(infoElem, {
+            text: function () {
+
+                iziToast.success(Object.assign({
+                    title: 'Информация успешно скопирована',
+                    backgroundColor: '#53c4eb'
+                }, {
+                    timeout: 3000,
+                    position: 'topCenter'
+                }));
+
+                var i, copyInfoText = '', copyInfoDetails = document.querySelectorAll('.copy-info-details');
+
+                for (i=0; i<copyInfoDetails.length; i++) {
+                    copyInfoText += copyInfoDetails[i].innerText.replace(/(\r\n|\n|\r)/gm, " ") + "\n";
+                }
+
+                return 'IP адрес: 194.28.209.178' + "\n" + copyInfoText + '© 2ip.io' + "\n"
+            }
+        });
+
+        let tabs = document.getElementsByClassName('tabs-item');
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].addEventListener("click", function() {
+                for (let i = 0; i < tabs.length; i++) {
+                    tabs[i].classList.remove('tabs-active');
+                }
+
+                tabs[i].classList.add('tabs-active');
+
+                let id = tabs[i].dataset['id'];
+                if (id == "ad") {
+                                    }
+
+                let contServices = document.getElementsByClassName('content-services');
+                for (let j = 0; j < contServices.length; j++) {
+                    contServices[j].style.display = 'none';
+                }
+
+                let prefix = document.getElementsByClassName('active-type')[0].dataset['id'];
+                if (id == 'tests') {
+                    id = id + '-' + prefix;
+
+                    document.getElementsByClassName('type-row')[0].style.display = 'block';
+                    document.getElementsByClassName('type-column')[0].style.display = 'block';
+                } else {
+                    document.getElementsByClassName('type-row')[0].style.display = 'none';
+                    document.getElementsByClassName('type-column')[0].style.display = 'none';
+                }
+
+                document.getElementsByClassName(id)[0].style.display = 'block';
+
+                // Cleanup query and show all tests
+                let queryField = document.getElementsByName('service-query')[0];
+                queryField.value = '';
+
+                let matches = document.querySelectorAll('.content-services div.test-item');
+                for (let i = 0; i < matches.length; i++) {
+                    matches[i].parentElement.style.display = 'block';
+                }
+
+                // Hide and focus on tests
+                let search = document.getElementsByClassName('v2-main-search')[0];
+                search.style.display = (id == 'tests-row') ? 'block' : 'none';
+
+                if (id == 'tests-row') {
+                    search.style.display = 'block';
+
+                    let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                    if (!isMobile) {
+                        queryField.focus();
+                    }
+                } else {
+                    search.style.display = 'none';
+                }
+            });
+        }
+
+        let columnView = document.getElementsByClassName('type-column')[0];
+        let rowView = document.getElementsByClassName('type-row')[0];
+
+        columnView.addEventListener("click", function() {
+            columnView.classList.add('active-type');
+            rowView.classList.remove('active-type');
+
+            document.getElementsByClassName('tests-column')[0].style.display = 'block';
+            document.getElementsByClassName('tests-row')[0].style.display = 'none';
+        });
+
+        rowView.addEventListener("click", function() {
+            rowView.classList.add('active-type');
+            columnView.classList.remove('active-type');
+
+            document.getElementsByClassName('tests-column')[0].style.display = 'none';
+            document.getElementsByClassName('tests-row')[0].style.display = 'block';
+        });
+
+        let isIP = (value) => {
+            return (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(value));
+        };
+
+        let isEmail = (value) => {
+            return (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value));
+        };
+
+        let isDomain = (value) => {
+            return (/^(?!:\/\/)([a-zA-Z0-9-]+\.){0,5}[a-zA-Z0-9-][a-zA-Z0-9-]+\.[a-zA-Z]{2,64}?$/.test(value));
+        };
+
+        let queryEvent = () => {
+            let value = document.getElementsByName('service-query')[0].value.trim();
+            let matches = document.querySelectorAll('.content-services div.test-item');
+
+            for (let i = 0; i < matches.length; i++) {
+                matches[i].parentElement.style.display = 'block';
+            }
+
+            if (isIP(value)) {
+                let matches = document.querySelectorAll('.content-services div.test-item:not([data-ip="true"])');
+                for (let i = 0; i < matches.length; i++) {
+                    matches[i].parentElement.style.display = 'none';
+                }
+                return;
+            }
+
+            if (isDomain(value)) {
+                let matches = document.querySelectorAll('.content-services div.test-item:not([data-domain="true"])');
+                for (let i = 0; i < matches.length; i++) {
+                    matches[i].parentElement.style.display = 'none';
+                }
+                return;
+            }
+
+            if (isEmail(value)) {
+                let matches = document.querySelectorAll('.content-services div.test-item:not([data-email="true"])');
+                for (let i = 0; i < matches.length; i++) {
+                    matches[i].parentElement.style.display = 'none';
+                }
+            }
+        };
+
+        let query = document.getElementsByName('service-query')[0];
+        query.addEventListener('keyup', queryEvent);
+        query.addEventListener('paste', queryEvent);
+
+        queryEvent();
+
+        let urls = document.querySelectorAll('.content-services div.test-item a.txt');
+        for (let i = 0; i < urls.length; i++) {
+            urls[i].addEventListener('click', (event) => {
+                let url = event.target.href;
+                if (!url) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                let cleanHref = event.target.getAttribute("href");
+                Bookmarks.saveRecentState(cleanHref);
+
+                let query = document.getElementsByName('service-query')[0].value.trim();
+
+                if (query.length > 0) {
+                    if (isIP(query)) {
+                        url += '?ip=' + query;
+                    } else if (isEmail(query)) {
+                        url += '?email=' + query;
+                    } else if (isDomain(query)) {
+                        url += '?domain=' + query;
+                    }
+                }
+
+                if (event.metaKey) {
+                    window.open(url,'_blank');
+                } else {
+                    window.location = url;
+                }
+            })
+        }
+
+        document.getElementById("ask_city").addEventListener("click", () => {
+            askCity();
+        });
+    });
+
+    let askCity = () => {
+        navigator.geolocation.getCurrentPosition(updateGeo, errorGeo);
+    };
+
+    let errorGeo = () => {
+        window.location.href = "https://2ip.ru/add-ip/";
+    };
+
+    let updateGeo = (position) => {
+        const {
+            latitude,
+            longitude
+        } = position.coords;
+
+        let realIp = '194.28.209.178';
+        let key = 'e5967346af';
+        let geoLoc = `ip=${realIp}&latitude=${latitude}&longitude=${longitude}&key=${key}`;
+
+        docCookies.setItem('geo', geoLoc, Infinity, '/');
+
+        const xhr = new XMLHttpRequest();
+        const url = 'https://2ip.ru/?area=geoByLocation';
+        const method = 'POST';
+        xhr.open(method, url);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            if (this.status >= 200 && this.status < 400) {
+                let data = JSON.parse(this.response);
+                if (data['status'] == 'success') {
+                    let city = document.getElementById("ip-info-city");
+                    city.innerText = data['cityName'];
+
+                    let country = document.getElementById("ip-info-country");
+                    country.style.backgroundImage = "url('/img/flags/4x3/" + data['countryCode'] + ".svg')";
+
+                    let title = "Мы определили ваше местоположение как" + " " + data['cityName'];
+                    iziToast.success(Object.assign(
+                        {title: title, backgroundColor: '#53c4eb'},
+                        {timeout: 3000, position: 'topCenter'}
+                    ));
+                } else {
+                    window.location.href = "https://2ip.ru/add-ip/";
+                }
+            }
+        };
+        xhr.send(geoLoc);
+    };
+</script>
+
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="content" style="">
+
+                <div class="add-top">
+<style>.o663e406743bf0 { position: absolute;top: 0;bottom: 0;left: 0;right: 0; }</style><script async type="text/javascript" src="//s.luxcdn.com/t/226998/360_light.js"></script>
+<script class='__lxGc__' type='text/javascript'>
+((__lxGc__=window.__lxGc__||{'s':{},'b':0})['s']['_226998']=__lxGc__['s']['_226998']||{'b':{}})['b']['_712069']={'i':__lxGc__.b++};
+</script>
+<script class='__lxGc__' type='text/javascript'>
+((__lxGc__=window.__lxGc__||{'s':{},'b':0})['s']['_226998']=__lxGc__['s']['_226998']||{'b':{}})['b']['_712074']={'i':__lxGc__.b++};
+</script>                </div>
+
+                <section class="ip-block">
+                    <div class="ip-inner">
+                        <div class="ip-info_left">
+                            <div class="ip-info">
+                                <h1 class="ip-txt ip_txt__header">
+                                    Ваш IP адрес:
+                                                                    </h1>
+
+                                <div class="ip" id="d_clip_button">
+                                    <span>194.28.209.178</span>
+
+                                    <i class="ip-icon-shape btn-copy"></i>
+                                </div>
+
+                                <div class="ipv6 ipv6-main" id="d_clip_button_v6" style="display: none">
+                                    <span id="ipv6-address"></span>
+
+                                    <i class="ip-icon-shape btn-copy"></i>
+                                </div>
+
+                                <div class="ip__cut" style="display: none">
+                                    <div class="ip__cut__title">194.28.2...</div>
+                                    <a href="https://2ip.ru/article/adblock/" class="ip__cut__notice">
+                                        Пожалуйста, отключите AdBlock, чтобы отобразить IP-адрес целиком
+                                    </a>
+                                </div>
+
+                                <div class="n58774c0338ffd5ff5c">
+                                                                            <div class="g663e406743861">
+                                            <i class="nb59689cbcbe4"></i>
+                                            <a href="https://hidemy.io/?utm_source=2ip.ru&utm_medium=display&utm_content=link_mainpage_changeip#527aabab86d48&chan=code1" style="color: #9b019b; border-bottom: 1px solid #9b019b">Сменить  IP-адрес</a>
+                                        </div>
+
+                                    <div class="u663e406743862">
+                                        <i class="ip-icon-stat-3"></i>
+                                        <div id="history-button" class="ip-links_item__clickable">История посещений</div>
+                                    </div>
+
+
+                                    <div class="u663e406743862">
+                                        <i class="ip-icon-speed"></i>
+                                        <div class="trigger ip-links_item__clickable" id="speed-start-button">
+                                            <h1 class="ip_links_speed__header">Скорость интернета</h1>
+                                        </div>
+                                    </div>
+
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="ip-info_right">
+                            <div class="user-data">
+                                <i class="ip-icon-shape btn-copy" id="btn-copy-info"></i>
+                                <div class="data_table">
+                                    <div class="data_item copy-info-details">
+                                        <div class="title" aria-disabled="true">Имя вашего компьютера:</div>
+                                        <i class="ip-icon-small ip-icon-device-desktop"></i>
+                                        <div class="q663e406743863">неизвестно                                                                                            <div class="n09295a1c8470daa2 nc47bf9b0">
+                                                    <i class="ip-icon-ad-eye" style="font-size: 18px; color: black; line-height: 18px; display: inline-block; vertical-align: middle; margin: 0 0 0 15px;"></i>
+                                                </div>
+                                                                                    </div>
+                                    </div>
+                                    <div class="data_item copy-info-details">
+                                        <div class="title" aria-disabled="true">Операционная система:</div>
+                                        <i class="ip-icon-small ip-icon-os-value"></i>
+                                        <div class="q663e406743863">неизвестно</div>
+                                    </div>
+                                    <div class="data_item copy-info-details">
+                                        <div class="title" aria-disabled="true">Ваш браузер:</div>
+
+                                        <i class="ip-icon-small ip-icon-browser-"></i>
+                                        <div class="q663e406743863"> </div>
+                                        <div class="value value-browser" aria-disabled="true" style="padding: 0">
+                                                                                </div>
+                                    </div>
+                                    <div class="data_item copy-info-details">
+                                        <div class="title" aria-disabled="true">Ваше местоположение:</div>
+                                        <div id="ip-info-country" class="value value-country" style="background-image: url('/img/flags/4x3/ru.svg'); background-repeat: no-repeat;">
+                                            <a title="Посмотреть точное место на карте"
+                                               id="ip-info-city"
+                                               href="https://2ip.io/ru/geoip/"/>Москва, Россия</a>
+
+                                            <a href="javascript:void(0);" id="ask_city" class="nd023f3d71" style="margin: -10px 0 -10px 17px">
+                                                <i class="main-ip-icon-warning ip-icon-warning ip-icon-small"></i>
+                                                <span aria-disabled="true">Уточнить?</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="data_item copy-info-details">
+                                        <div class="title" aria-disabled="true">Ваш провайдер:</div>
+
+                                                                                    <style>
+                                                .value-custom:before {
+                                                    background-image: url('https://2ip.ru/asn_favicons/34665.png');
+                                                }
+                                            </style>
+                                            <div class="value value-custom">
+                                                                                            <a href="https://2ip.ru/as/34665/">Petersburg Internet Network ltd.</a>
+                                                                                        </div>
+                                        </div>
+                                        <div class="data_item ">
+                                            <div class="title" aria-disabled="true">Прокси:</div>
+
+                                            <i class="ip-icon-small nddf11f7908883"></i>
+                                            <div class="q663e406743863">
+                                                                                                Не используется
+                                                    <div class="nd023f3d71">
+                                                        <a href="https://proxyelite.info/" target="_blank" class="nd023f3d71">
+                                                            <i class="main-ip-icon-warning ip-icon-warning ip-icon-small" style="text"></i>
+                                                            <span aria-disabled="true">Уточнить?</span>
+                                                        </a>
+                                                    </div>
+                                                                                        </div>
+                                        </div>
+
+                                                                            <div class="data_item">
+                                            <div class="title" aria-disabled="true">Защита данных:</div>
+                                            <i class="ip-icon-small n88063651ab404cfb4a16 ip-icon-color-gray"></i>
+                                            <div class="q663e406743863">
+                                                Отсутствует                                                <div class="nd023f3d71 n09295a1c8470daa2 n4d554710">
+                                                    <i class="main-ip-icon-warning ip-icon-warning ip-icon-small"></i>
+                                                    <span aria-disabled="true">Исправить?</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+
+                <!--
+                <div class="mobile-adv">
+                    <img src="img/123.png" alt="img">
+                </div>
+                -->
+
+                <section class="tests">
+                    <div class="tests-header">
+                        <div class="row between">
+                            <div class="type-view">
+                                <button type="button" data-id="row" class="type-row active-type" aria-label="row"></button>
+                                <button type="button" data-id="column" class="type-column" aria-label="column"></button>
+                            </div>
+
+                            <div class="tabs">
+                                <ul>
+                                    <li>
+                                        <button type="button" data-id="services" class="tabs-item" aria-label="Services" aria-disabled="true">
+                                            <i class="ip-icon-servact"></i>
+                                            <span>Сервисы</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-id="tests" class="tabs-item tabs-active" aria-label="Tests">
+                                            <i class="ip-icon-testact"></i>
+                                            <span>Тесты</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-id="fun" class="tabs-item" aria-label="Fun" aria-disabled="true">
+                                            <i class="ip-icon-playact"></i>
+                                            <span>Забавы</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-id="ad" class="tabs-item item-vpn" aria-label="Ad">
+                                            <i class="ip-icon-krot"></i>
+                                            <span>Krot VPN</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                                                    <div class="ad-test-vpn">
+                                <a href="https://2ip.io"
+                                   target="_blank"
+                                   rel="nofollow"><span>2ip.io</span>
+                                </a>
+                            </div>
+                                                </div>
+                    </div>
+
+                <div class="tests-favorites">
+    <ul class="favorite-list">
+    </ul>
+</div>
+                    <div class="v2-main-search v2-main-search-active">
+                        <form action="/">
+                            <input type="text" name="service-query" placeholder="Введите E-mail, IP или адреса сайта" aria-disabled="true">
+                            <button type="submit" aria-label="Поиск" disabled></button>
+                        </form>
+                    </div>
+
+                    <style>.f663e406744383 { position: absolute;top: 0;bottom: 0;left: 0;right: 0; }</style><script async type='text/javascript' src='//s.luxcdn.com/t/226998/360_light.js'></script>
+<script class='__lxGc__' type='text/javascript'>
+((__lxGc__=window.__lxGc__||{'s':{},'b':0})['s']['_226998']=__lxGc__['s']['_226998']||{'b':{}})['b']['_704715']={'i':__lxGc__.b++};
+</script>
+                    <section class="content-services tests-row">
+
+<ul class="tests-list items-list">
+
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-speed"
+             data-id="speed"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/speed/">
+                <i class="ip-icon-speed"></i>
+                Скорость интернет соединения            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/speed/" data-fid="speed"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-privacy"
+             data-id="privacy"
+                                    >
+
+            <a class="txt" href="https://2ip.io/ru/privacy/">
+                <i class="ip-icon-privacy"></i>
+                Проверка анонимности            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/privacy/" data-fid="privacy"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-time-calc"
+             data-id="time-calc"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/time-calc/">
+                <i class="ip-icon-time-calc"></i>
+                Время загрузки файла            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/time-calc/" data-fid="time-calc"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-size-calc"
+             data-id="size-calc"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/size-calc/">
+                <i class="ip-icon-size-calc"></i>
+                Объем загружаемого файла            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/size-calc/" data-fid="size-calc"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-whois"
+             data-id="whois"
+            data-ip="true"                        data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/whois/">
+                <i class="ip-icon-whois"></i>
+                Информация об IP адресе или домене            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/whois/" data-fid="whois"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-lookup"
+             data-id="lookup"
+            data-ip="true"                        data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/lookup/">
+                <i class="ip-icon-lookup"></i>
+                IP интернет ресурса            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/lookup/" data-fid="lookup"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-ping"
+             data-id="ping"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/ping/">
+                <i class="ip-icon-ping"></i>
+                Время реакции вашего компьютера            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/ping/" data-fid="ping"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-cms"
+             data-id="cms"
+            data-ip="true"                        data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/cms/">
+                <i class="ip-icon-cms"></i>
+                Система управления сайтом (CMS)            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/cms/" data-fid="cms"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-guess-hosting"
+             data-id="guess-hosting"
+                                    data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/guess-hosting/">
+                <i class="ip-icon-guess-hosting"></i>
+                Хостинг сайта            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/guess-hosting/" data-fid="guess-hosting"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-distance"
+             data-id="distance"
+            data-ip="true"                        data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/distance/">
+                <i class="ip-icon-distance"></i>
+                Расстояние до сайта            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/distance/" data-fid="distance"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-analizator"
+             data-id="analizator"
+                                    data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/analizator/">
+                <i class="ip-icon-analizator"></i>
+                Информация о сайте            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/analizator/" data-fid="analizator"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-domain-list-by-ip"
+             data-id="domain-list-by-ip"
+            data-ip="true"                        data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/domain-list-by-ip/">
+                <i class="ip-icon-domain-list-by-ip"></i>
+                Сайты на одном IP            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/domain-list-by-ip/" data-fid="domain-list-by-ip"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-domain-list-by-email"
+             data-id="domain-list-by-email"
+                        data-email="true"            data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/domain-list-by-email/">
+                <i class="ip-icon-domain-list-by-email"></i>
+                Все домены одного владельца            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/domain-list-by-email/" data-fid="domain-list-by-email"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-site-availability"
+             data-id="site-availability"
+                                    data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/site-availability/">
+                <i class="ip-icon-site-availability"></i>
+                Доступность сайта            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/site-availability/" data-fid="site-availability"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-site-statistics"
+             data-id="site-statistics"
+                                    data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/site-statistics/">
+                <i class="ip-icon-site-statistics"></i>
+                Посещаемость сайта            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/site-statistics/" data-fid="site-statistics"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-spam"
+             data-id="spam"
+            data-ip="true"                        >
+
+            <a class="txt" href="https://2ip.ru/spam/">
+                <i class="ip-icon-spam"></i>
+                Наличие IP в СПАМ базах            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/spam/" data-fid="spam"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-mail-checker"
+             data-id="mail-checker"
+                        data-email="true"            >
+
+            <a class="txt" href="https://2ip.io/ru/mail-checker/">
+                <i class="ip-icon-mail-checker"></i>
+                Проверка существования email            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/mail-checker/" data-fid="mail-checker"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-port-scaner"
+             data-id="port-scaner"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/port-scaner/">
+                <i class="ip-icon-port-scaner"></i>
+                Безопасность вашего компьютера            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/port-scaner/" data-fid="port-scaner"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-check-port"
+             data-id="check-port"
+                                    >
+
+            <a class="txt" href="https://2ip.io/ru/check-port/">
+                <i class="ip-icon-check-port"></i>
+                Проверка порта            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/check-port/" data-fid="check-port"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-antivirus"
+             data-id="antivirus"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/antivirus/">
+                <i class="ip-icon-antivirus"></i>
+                Проверка файла на вирусы            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/antivirus/" data-fid="antivirus"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-dig"
+             data-id="dig"
+                                    data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/dig/">
+                <i class="ip-icon-dig"></i>
+                DNS параметры домена            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/dig/" data-fid="dig"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-site-virus-scaner"
+             data-id="site-virus-scaner"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/site-virus-scaner/">
+                <i class="ip-icon-site-virus-scaner"></i>
+                Проверка сайта на вирусы            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/site-virus-scaner/" data-fid="site-virus-scaner"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-browser-update"
+             data-id="browser-update"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/browser-update/">
+                <i class="ip-icon-browser-update"></i>
+                Проверка актуальности браузера            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/browser-update/" data-fid="browser-update"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-punycode"
+             data-id="punycode"
+                                    data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/punycode/">
+                <i class="ip-icon-punycode"></i>
+                Конвертер punycode для .рф доменов            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/punycode/" data-fid="punycode"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-server-response"
+             data-id="server-response"
+            data-ip="true"                        data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/server-response/">
+                <i class="ip-icon-server-response"></i>
+                Ответ сервера            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/server-response/" data-fid="server-response"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-domain-checker"
+             data-id="domain-checker"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/domain-checker/">
+                <i class="ip-icon-domain-checker"></i>
+                Поиск доменного имени            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/domain-checker/" data-fid="domain-checker"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-know-email-ip"
+             data-id="know-email-ip"
+                        data-email="true"            >
+
+            <a class="txt" href="https://2ip.ru/know-email-ip/">
+                <i class="ip-icon-know-email-ip"></i>
+                Определение IP адреса по Е-mail            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/know-email-ip/" data-fid="know-email-ip"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-passcheck"
+             data-id="passcheck"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/passcheck/">
+                <i class="ip-icon-passcheck"></i>
+                Стойкость пароля            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/passcheck/" data-fid="passcheck"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-ssl-info"
+             data-id="ssl-info"
+            data-ip="true"                        data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/ssl-info/">
+                <i class="ip-icon-ssl-info"></i>
+                Проверка SSL            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/ssl-info/" data-fid="ssl-info"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-rkn-blacklist"
+             data-id="rkn-blacklist"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/rkn-blacklist/">
+                <i class="ip-icon-rkn-blacklist"></i>
+                Блокировка Роскомнадзором            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/rkn-blacklist/" data-fid="rkn-blacklist"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-domain-age"
+             data-id="domain-age"
+            data-ip="true"                        data-domain="true">
+
+            <a class="txt" href="https://2ip.ru/domain-age/">
+                <i class="ip-icon-domain-age"></i>
+                Возраст домена            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/domain-age/" data-fid="domain-age"></div>
+        </div>
+    </li>
+    </ul>                    </section>
+
+                    <section class="content-services fun hidden">
+
+<ul class="tests-list items-list">
+
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-strange-ip"
+             data-id="strange-ip"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/strange-ip/">
+                <i class="ip-icon-strange-ip"></i>
+                2IP Шпион            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/strange-ip/" data-fid="strange-ip"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-happy-ip"
+             data-id="happy-ip"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/happy-ip/">
+                <i class="ip-icon-happy-ip"></i>
+                Счастливый IP            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/happy-ip/" data-fid="happy-ip"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-ip2color"
+             data-id="ip2color"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/ip2color/">
+                <i class="ip-icon-ip2color"></i>
+                Цвет IP адреса            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/ip2color/" data-fid="ip2color"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-battle"
+             data-id="battle"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/battle/">
+                <i class="ip-icon-battle"></i>
+                Битва IP            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/battle/" data-fid="battle"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-guesser"
+             data-id="guesser"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/guesser/">
+                <i class="ip-icon-guesser"></i>
+                Телепат            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/guesser/" data-fid="guesser"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-user-tracking"
+             data-id="user-tracking"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/user-tracking/">
+                <i class="ip-icon-user-tracking"></i>
+                Отслеживание пользователей            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/user-tracking/" data-fid="user-tracking"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-speed-calc"
+             data-id="speed-calc"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/speed-calc/">
+                <i class="ip-icon-speed-calc"></i>
+                Оценка скорости интернет            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/speed-calc/" data-fid="speed-calc"></div>
+        </div>
+    </li>
+    </ul>                    </section>
+
+                    <section class="content-services services hidden">
+
+<ul class="tests-list items-list">
+
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-anonim"
+             data-id="anonim"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/anonim/">
+                <i class="ip-icon-anonim"></i>
+                Анонимайзер            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/anonim/" data-fid="anonim"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-browser-info"
+             data-id="browser-info"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/browser-info/">
+                <i class="ip-icon-browser-info"></i>
+                Информация от вашего браузера            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/browser-info/" data-fid="browser-info"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-bar"
+             data-id="bar"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/bar/">
+                <i class="ip-icon-bar"></i>
+                Userbar с данными пользователя            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/bar/" data-fid="bar"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-sbar"
+             data-id="sbar"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/sbar/">
+                <i class="ip-icon-sbar"></i>
+                Блок для вашего сайта            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/sbar/" data-fid="sbar"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-avbar"
+             data-id="avbar"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/avbar/">
+                <i class="ip-icon-avbar"></i>
+                Антивирусный блок для сайта            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/avbar/" data-fid="avbar"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-speedhp"
+             data-id="speedhp"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/speedhp/">
+                <i class="ip-icon-speedhp"></i>
+                Спидометр для вашего сайта            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/speedhp/" data-fid="speedhp"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-toolbar"
+             data-id="toolbar"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/toolbar/">
+                <i class="ip-icon-toolbar"></i>
+                Плагин для вашего браузера            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/toolbar/" data-fid="toolbar"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-wdgt"
+             data-id="wdgt"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/wdgt/">
+                <i class="ip-icon-wdgt"></i>
+                Виджеты            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/wdgt/" data-fid="wdgt"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-spambot"
+             data-id="spambot"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/spambot/">
+                <i class="ip-icon-spambot"></i>
+                Защита email от спамботов            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/spambot/" data-fid="spambot"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-ip-calc"
+             data-id="ip-calc"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/ip-calc/">
+                <i class="ip-icon-ip-calc"></i>
+                IP калькулятор            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/ip-calc/" data-fid="ip-calc"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-dev"
+             data-id="dev"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/dev/">
+                <i class="ip-icon-dev"></i>
+                Утилиты разработчика            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/dev/" data-fid="dev"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-dkim"
+             data-id="dkim"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/dkim/">
+                <i class="ip-icon-dkim"></i>
+                DKIM генератор            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/dkim/" data-fid="dkim"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-pwned"
+             data-id="pwned"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/pwned/">
+                <i class="ip-icon-pwned"></i>
+                Проверка почты на взлом            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/pwned/" data-fid="pwned"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-url-expander"
+             data-id="url-expander"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/url-expander/">
+                <i class="ip-icon-url-expander"></i>
+                Декодер коротких ссылок            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/url-expander/" data-fid="url-expander"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-mac-address"
+             data-id="mac-address"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/mac-address/">
+                <i class="ip-icon-mac-address"></i>
+                Информация о MAC-адресе            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/mac-address/" data-fid="mac-address"></div>
+        </div>
+    </li>
+
+    <li class="item-wrapper">
+        <div class="test-item test-item-asn-by-ip"
+             data-id="asn-by-ip"
+                                    >
+
+            <a class="txt" href="https://2ip.ru/asn-by-ip/">
+                <i class="ip-icon-asn-by-ip"></i>
+                Узнать ASN по IP адресу            </a>
+            <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/asn-by-ip/" data-fid="asn-by-ip"></div>
+        </div>
+    </li>
+    </ul>                    </section>
+
+                    <section class="content-services tests-column hidden">
+
+<style>
+    .test-block_list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .more-test .test-block_list, .security-test .test-block_list {
+        padding-left: 16px;
+    }
+</style>
+
+<div class="row between category-test">
+    <div class="test-block network-test">
+    <div class="test-block_title">Сетевое соединение</div>
+
+    <ul class="test-block_list">
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-speed"
+                     data-id="speed"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/speed/">
+                        <i class="ip-icon-speed"></i>
+                        Скорость интернет соединения                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/speed/" data-fid="speed"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-time-calc"
+                     data-id="time-calc"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/time-calc/">
+                        <i class="ip-icon-time-calc"></i>
+                        Время загрузки файла                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/time-calc/" data-fid="time-calc"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-size-calc"
+                     data-id="size-calc"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/size-calc/">
+                        <i class="ip-icon-size-calc"></i>
+                        Объем загружаемого файла                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/size-calc/" data-fid="size-calc"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-ping"
+                     data-id="ping"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/ping/">
+                        <i class="ip-icon-ping"></i>
+                        Время реакции вашего компьютера                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/ping/" data-fid="ping"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-site-availability"
+                     data-id="site-availability"
+                                                            data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/site-availability/">
+                        <i class="ip-icon-site-availability"></i>
+                        Доступность сайта                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/site-availability/" data-fid="site-availability"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-check-port"
+                     data-id="check-port"
+                                                            >
+
+                    <a class="txt" href="https://2ip.io/ru/check-port/">
+                        <i class="ip-icon-check-port"></i>
+                        Проверка порта                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/check-port/" data-fid="check-port"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-average-speed"
+                     data-id="average-speed"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/speednew/">
+                        <i class="ip-icon-average-speed"></i>
+                        Средняя скорость интернет                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/speednew/" data-fid="average-speed"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-domain-age"
+                     data-id="domain-age"
+                    data-ip="true"                                        data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/domain-age/">
+                        <i class="ip-icon-domain-age"></i>
+                        Возраст домена                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/domain-age/" data-fid="domain-age"></div>
+                </div>
+            </li>
+            </ul>
+</div>
+    <div class="test-block security-test">
+    <div class="test-block_title">Защита и безопасность</div>
+
+    <ul class="test-block_list">
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-privacy"
+                     data-id="privacy"
+                                                            >
+
+                    <a class="txt" href="https://2ip.io/ru/privacy/">
+                        <i class="ip-icon-privacy"></i>
+                        Проверка анонимности                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/privacy/" data-fid="privacy"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-spam"
+                     data-id="spam"
+                    data-ip="true"                                        >
+
+                    <a class="txt" href="https://2ip.ru/spam/">
+                        <i class="ip-icon-spam"></i>
+                        Наличие IP в СПАМ базах                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/spam/" data-fid="spam"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-mail-checker"
+                     data-id="mail-checker"
+                                        data-email="true"                    >
+
+                    <a class="txt" href="https://2ip.io/ru/mail-checker/">
+                        <i class="ip-icon-mail-checker"></i>
+                        Проверка существования email                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/mail-checker/" data-fid="mail-checker"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-port-scaner"
+                     data-id="port-scaner"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/port-scaner/">
+                        <i class="ip-icon-port-scaner"></i>
+                        Безопасность вашего компьютера                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/port-scaner/" data-fid="port-scaner"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-antivirus"
+                     data-id="antivirus"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/antivirus/">
+                        <i class="ip-icon-antivirus"></i>
+                        Проверка файла на вирусы                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/antivirus/" data-fid="antivirus"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-proxycheck"
+                     data-id="proxycheck"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/proxycheck/">
+                        <i class="ip-icon-proxycheck"></i>
+                        Проверка анонимности прокси сервера                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/proxycheck/" data-fid="proxycheck"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-site-virus-scaner"
+                     data-id="site-virus-scaner"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/site-virus-scaner/">
+                        <i class="ip-icon-site-virus-scaner"></i>
+                        Проверка сайта на вирусы                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/site-virus-scaner/" data-fid="site-virus-scaner"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-browser-update"
+                     data-id="browser-update"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/browser-update/">
+                        <i class="ip-icon-browser-update"></i>
+                        Проверка актуальности браузера                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/browser-update/" data-fid="browser-update"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-passcheck"
+                     data-id="passcheck"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/passcheck/">
+                        <i class="ip-icon-passcheck"></i>
+                        Стойкость пароля                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/passcheck/" data-fid="passcheck"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-ssl-info"
+                     data-id="ssl-info"
+                    data-ip="true"                                        data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/ssl-info/">
+                        <i class="ip-icon-ssl-info"></i>
+                        Проверка SSL                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/ssl-info/" data-fid="ssl-info"></div>
+                </div>
+            </li>
+            </ul>
+</div>
+    <div class="test-block domain-test">
+    <div class="test-block_title">Для хостинга и домена</div>
+
+    <ul class="test-block_list">
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-whois"
+                     data-id="whois"
+                    data-ip="true"                                        data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/whois/">
+                        <i class="ip-icon-whois"></i>
+                        Информация об IP адресе или домене                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/whois/" data-fid="whois"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-lookup"
+                     data-id="lookup"
+                    data-ip="true"                                        data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/lookup/">
+                        <i class="ip-icon-lookup"></i>
+                        IP интернет ресурса                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/lookup/" data-fid="lookup"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-guess-hosting"
+                     data-id="guess-hosting"
+                                                            data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/guess-hosting/">
+                        <i class="ip-icon-guess-hosting"></i>
+                        Хостинг сайта                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/guess-hosting/" data-fid="guess-hosting"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-analizator"
+                     data-id="analizator"
+                                                            data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/analizator/">
+                        <i class="ip-icon-analizator"></i>
+                        Информация о сайте                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/analizator/" data-fid="analizator"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-domain-list-by-ip"
+                     data-id="domain-list-by-ip"
+                    data-ip="true"                                        data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/domain-list-by-ip/">
+                        <i class="ip-icon-domain-list-by-ip"></i>
+                        Сайты на одном IP                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/domain-list-by-ip/" data-fid="domain-list-by-ip"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-domain-list-by-email"
+                     data-id="domain-list-by-email"
+                                        data-email="true"                    data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/domain-list-by-email/">
+                        <i class="ip-icon-domain-list-by-email"></i>
+                        Все домены одного владельца                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/domain-list-by-email/" data-fid="domain-list-by-email"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-geoip"
+                     data-id="geoip"
+                                                            >
+
+                    <a class="txt" href="https://2ip.io/ru/geoip/">
+                        <i class="ip-icon-geoip"></i>
+                        Определить месторасположение                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/geoip/" data-fid="geoip"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-dig"
+                     data-id="dig"
+                                                            data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/dig/">
+                        <i class="ip-icon-dig"></i>
+                        DNS параметры домена                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/dig/" data-fid="dig"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-punycode"
+                     data-id="punycode"
+                                                            data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/punycode/">
+                        <i class="ip-icon-punycode"></i>
+                        Конвертер punycode для .рф доменов                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/punycode/" data-fid="punycode"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-domain-checker"
+                     data-id="domain-checker"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/domain-checker/">
+                        <i class="ip-icon-domain-checker"></i>
+                        Поиск доменного имени                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/domain-checker/" data-fid="domain-checker"></div>
+                </div>
+            </li>
+            </ul>
+</div>
+    <div class="test-block more-test">
+    <div class="test-block_title">Прочее</div>
+
+    <ul class="test-block_list">
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-cms"
+                     data-id="cms"
+                    data-ip="true"                                        data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/cms/">
+                        <i class="ip-icon-cms"></i>
+                        Система управления сайтом (CMS)                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/cms/" data-fid="cms"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-distance"
+                     data-id="distance"
+                    data-ip="true"                                        data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/distance/">
+                        <i class="ip-icon-distance"></i>
+                        Расстояние до сайта                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/distance/" data-fid="distance"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-site-statistics"
+                     data-id="site-statistics"
+                                                            data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/site-statistics/">
+                        <i class="ip-icon-site-statistics"></i>
+                        Посещаемость сайта                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/site-statistics/" data-fid="site-statistics"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-proxy"
+                     data-id="proxy"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/proxy/">
+                        <i class="ip-icon-proxy"></i>
+                        Список прокси серверов                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/proxy/" data-fid="proxy"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-server-response"
+                     data-id="server-response"
+                    data-ip="true"                                        data-domain="true">
+
+                    <a class="txt" href="https://2ip.ru/server-response/">
+                        <i class="ip-icon-server-response"></i>
+                        Ответ сервера                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/server-response/" data-fid="server-response"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-know-email-ip"
+                     data-id="know-email-ip"
+                                        data-email="true"                    >
+
+                    <a class="txt" href="https://2ip.ru/know-email-ip/">
+                        <i class="ip-icon-know-email-ip"></i>
+                        Определение IP адреса по Е-mail                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/know-email-ip/" data-fid="know-email-ip"></div>
+                </div>
+            </li>
+                    <li style="max-width: 242px; width: 100%">
+                <div class="test-item test-item-rkn-blacklist"
+                     data-id="rkn-blacklist"
+                                                            >
+
+                    <a class="txt" href="https://2ip.ru/rkn-blacklist/">
+                        <i class="ip-icon-rkn-blacklist"></i>
+                        Блокировка Роскомнадзором                    </a>
+                    <div class="fav bookmarks_add ip-icon-star-non-filled" title="В избранное" data-flink="/rkn-blacklist/" data-fid="rkn-blacklist"></div>
+                </div>
+            </li>
+            </ul>
+</div></div>                    </section>
+                </section>
+
+
+<div id="slide-isp-review" class="column-new">
+    <img src="/images/generator.gif" height="20" width="20" alt="Загрузка..." />
+</div>
+
+<script type="text/javascript">
+(function() {
+    let isResponsesLoadInitiated = false;
+    let loadResponses = () => {
+        isResponsesLoadInitiated = true;
+
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                let content = document.getElementById('slide-isp-review');
+                content.innerHTML = xmlHttp.responseText;
+
+                if (content.getElementsByClassName('simple-slider-script').length > 0) {
+                    let sliderJS = content.getElementsByClassName('simple-slider-script')[0].innerHTML;
+                    eval(sliderJS);
+                }
+            }
+        };
+        xmlHttp.open("GET", 'https://2ip.ru/?area=ajaxLastReviewViewer&design=2', true);
+        xmlHttp.send(null);
+    };
+
+    window.addEventListener('scroll', function() {
+        if (!isResponsesLoadInitiated) {
+            loadResponses();
+        }
+    });
+
+    if (window.screen.height > 1500) {
+        loadResponses();
+    }
+})(window);
+</script>    <style>
+        .mainadv {
+            margin: 10px auto;
+        }
+    </style>
+	<div class="mainadv">
+	</div>
+
+<div id="content-articles-block" class="column-new">
+	<img src="/images/generator.gif" height="20" width="20" alt="Загрузка..." />
+</div>
+
+<script type="text/javascript">
+(function() {
+    let isArticlesLoadInitiated = false;
+    let loadArticles = () => {
+        isArticlesLoadInitiated = true;
+
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                let content = document.getElementById('content-articles-block');
+                content.innerHTML = xmlHttp.responseText;
+
+                if (content.getElementsByClassName('simple-slider-script').length > 0) {
+                    let sliderJS = content.getElementsByClassName('simple-slider-script')[0].innerHTML;
+                    eval(sliderJS);
+                }
+            }
+        };
+        xmlHttp.open("GET", 'https://2ip.ru/?area=ajaxLastArticlesViewer&design=2', true);
+        xmlHttp.send(null);
+    };
+
+    window.addEventListener('scroll', function() {
+        if (!isArticlesLoadInitiated) {
+            loadArticles();
+        }
+	});
+
+    if (window.screen.height > 1500) {
+        loadArticles();
+    }
+})(window);
+</script>
+<div id="content-last-news" class="column-new">
+    <img src="/images/generator.gif" height="20" width="20" alt="Загрузка..." />
+</div>
+
+<script type="text/javascript">
+(function() {
+    let isNewsLoadInitiated = false;
+    let loadNews = () => {
+        isNewsLoadInitiated = true;
+
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                let content = document.getElementById('content-last-news');
+                content.innerHTML = xmlHttp.responseText;
+
+                if (content.getElementsByClassName('simple-slider-script').length > 0) {
+                    let sliderJS = content.getElementsByClassName('simple-slider-script')[0].innerHTML;
+                    eval(sliderJS);
+                }
+            }
+        };
+        xmlHttp.open("GET", 'https://2ip.ru/?area=ajaxLastNewsViewer&design=2', true);
+        xmlHttp.send(null);
+    };
+
+    window.addEventListener('scroll', function() {
+        if (!isNewsLoadInitiated) {
+            loadNews();
+        }
+    });
+
+    if (window.screen.height > 1500) {
+        loadNews()
+    }
+})(window);
+</script>
+                        </div>
+            <div class="sidebar">
+<a target="_blank" href="https://2ip.ru/?area=adBannerRedirector&id=351"><img src="https://2ip.ru/banners/351-31.png" alt="" width=" 200" heigth="600"/></a>            </div>
+        </div>
+    </div>
+
+    <div class="main-ip-history">
+        <span class="main-ip-history__close">×</span>
+        <div class="main-ip-history__container">
+            <div class="main-ip-history__container__title">История посещений</div>
+            <ul class="main-ip-history__list">
+                                    <li class="main-ip-history__list__clear">
+                        <a href="https://2ip.ru/?clearHistory">Очистить историю</a>
+                    </li>
+
+                                <li>
+                    <span class="main-ip-history__container__date">
+                        Сегодня в 18:42                    </span>
+
+                    <span class="main-ip-history__container__ip">
+                        194.28.209.178                    </span>
+                </li>
+                            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/plain" id="speed-checker-modal">
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+
+            <div class="modal-counter" id="speed-counter-wrapper">
+                <div class="counter" id="speed-counter" style="display: none">
+                    <div class="nums">
+                        <span class="in">3</span>
+                        <span>2</span>
+                        <span>1</span>
+                        <span>0</span>
+                    </div>
+                </div>
+
+                <p>
+                    <a class="speed-link" id="speed-link" href="https://2ip.ru/speed/">
+                        Перейти к выбору площадки                    </a>
+                </p>
+            </div>
+
+            <div id="speed-widget" style="display: none">    
+                
+<div class="st-widget">
+    <div class="st-gauge" id="speedmeter">
+        <div class="st-gauge__labels" id="gauge_labels">
+            <div class="st-gauge__label">0</div>
+            <div class="st-gauge__label">10</div>
+            <div class="st-gauge__label">20</div>
+            <div class="st-gauge__label">30</div>
+            <div class="st-gauge__label">40</div>
+            <div class="st-gauge__label">50</div>
+            <div class="st-gauge__label">60</div>
+            <div class="st-gauge__label">70</div>
+            <div class="st-gauge__label">80</div>
+            <div class="st-gauge__label">90</div>
+            <div class="st-gauge__label">100</div>
+        </div>
+
+        <div class="st-gauge__scale-marks">
+            <div class="st-gauge__scale-mark"></div>
+            <div class="st-gauge__scale-mark"></div>
+            <div class="st-gauge__scale-mark"></div>
+            <div class="st-gauge__scale-mark"></div>
+            <div class="st-gauge__scale-mark"></div>
+            <div class="st-gauge__scale-mark"></div>
+            <div class="st-gauge__scale-mark"></div>
+            <div class="st-gauge__scale-mark"></div>
+            <div class="st-gauge__scale-mark"></div>
+            <div class="st-gauge__scale-mark"></div>
+            <div class="st-gauge__scale-mark"></div>
+        </div>
+
+        <div class="st-gauge__progress"></div>
+        <div class="st-gauge__progress-fade hidden"></div>
+        <div class="st-gauge__progress-overlay"></div>
+
+        <div class="st-gauge__inner-progress"></div>
+        <div class="st-gauge__inner-progress-fade hidden"></div>
+        <div class="st-gauge__inner-progress-overlay"></div>
+
+        <div class="st-gauge__inner-circle"></div>
+
+        <div class="st-gauge__arrow">
+            <svg class="icon-gauge-arrow" id="icon-gauge-arrow-incoming">
+                <path d="M1.000,11.000 L-0.000,10.000 L-0.000,9.000 L2.000,7.000 L2.000,4.000 L-0.000,2.000 L-0.000,1.000 L1.000,-0.000 L12.000,5.000 L1.000,11.000 Z" class="cls-2" />
+            </svg>
+        </div>
+
+        <div class="st-gauge__value">
+            <span id="speed_value">0</span><span class="st-gauge__addition-value">.<span id="speed_value_addition">0</span></span>
+        </div>
+        <div class="st-gauge__unit">Мбит/с</div>
+
+        <div class="st-gauge__status">
+            <svg class="st-gauge__status-icon st-gauge__status-icon-down" id="inGauge">
+                <use xlink:href="#single-arrow" />
+            </svg>
+            <svg class="st-gauge__status-icon st-gauge__status-icon-up" id="outGauge" style="display: none">
+                <use xlink:href="#single-arrow-outcoming" />
+            </svg>
+        </div>
+    </div>
+    <ul class="st-stats" id="progressView">
+        <li class="st-stats__item">
+            <div class="st-stat-icon st-stat-icon--orange" id="pingProgress">
+                <svg class="icon-double-arrow">
+                    <use xlink:href="#double-arrow" />
+                </svg>
+            </div>
+            <div class="st-stat-icon st-stat-icon--ping-done" id="pingProgressFinished">
+                <svg class="icon-double-arrow">
+                    <use xlink:href="#double-arrow-white" />
+                </svg>
+            </div>
+            <div class="st-stats__label">Пинг</div>
+            <div class="st-stats__value" id="pingResult">-</div>
+            <div class="st-stats__unit">мс</div>
+        </li>
+        <li class="st-stats__item">
+            <div class="st-stat-icon st-stat-icon--green" id="inProgress">
+                <svg class="icon-single-bottom-arrow">
+                    <use xlink:href="#single-arrow" />
+                </svg>
+            </div>
+            <div class="st-stat-icon st-stat-icon--incoming-done" id="inProgressFinished">
+                <svg class="icon-single-bottom-arrow">
+                    <use xlink:href="#single-arrow-done" />
+                </svg>
+            </div>
+            <div class="st-stats__label">Входящая</div>
+            <div class="st-stats__value" id="inResult">-</div>
+            <div class="st-stats__unit">Мбит/с</div>
+        </li>
+        <li class="st-stats__item">
+            <div class="st-stat-icon st-stat-icon--gray" id="outProgress">
+                <svg class="icon-single-top-arrow">
+                    <use xlink:href="#single-top-arrow" />
+                </svg>
+            </div>
+            <div class="st-stat-icon st-stat-icon--outcoming-done" id="outProgressFinished">
+                <svg class="icon-single-top-arrow">
+                    <use xlink:href="#single-arrow-done" />
+                </svg>
+            </div>
+            <div class="st-stats__label">Исходящая</div>
+            <div class="st-stats__value" id="outResult">-</div>
+            <div class="st-stats__unit">Мбит/с</div>
+        </li>
+    </ul>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+    <symbol id="double-arrow" preserveAspectRatio="xMidYMid" viewBox="0 0 20 19">
+        <defs>
+            <style>
+                .cls-1 {
+                    fill: #ffa137;
+                    fill-rule: evenodd;
+                }
+            </style>
+        </defs>
+        <path d="M-0.000,4.000 L16.000,4.000 L13.000,1.000 L14.000,-0.000 L18.000,4.000 L18.000,5.000 L14.000,9.000 L13.000,8.000 L16.000,5.000 L-0.000,5.000 L-0.000,4.000 Z" class="cls-1"/>
+        <path d="M1.000,15.000 L1.000,14.000 L6.000,10.000 L7.000,11.000 L3.000,14.000 L20.000,14.000 L20.000,15.000 L3.000,15.000 L7.000,18.000 L6.000,19.000 L1.000,15.000 " class="cls-1"/>
+    </symbol>
+
+    <symbol id="double-arrow-white" preserveAspectRatio="xMidYMid" viewBox="0 0 20 19">
+        <defs>
+            <style>
+                .cls-1-white {
+                    fill: #ffffff;
+                    fill-rule: evenodd;
+                }
+            </style>
+        </defs>
+        <path d="M-0.000,4.000 L16.000,4.000 L13.000,1.000 L14.000,-0.000 L18.000,4.000 L18.000,5.000 L14.000,9.000 L13.000,8.000 L16.000,5.000 L-0.000,5.000 L-0.000,4.000 Z" class="cls-1-white"/>
+        <path d="M1.000,15.000 L1.000,14.000 L6.000,10.000 L7.000,11.000 L3.000,14.000 L20.000,14.000 L20.000,15.000 L3.000,15.000 L7.000,18.000 L6.000,19.000 L1.000,15.000 " class="cls-1-white"/>
+    </symbol>
+
+    <symbol id="gauge-arrow" preserveAspectRatio="xMidYMid" viewBox="0 0 12 11">
+        <defs>
+            <style>
+                .cls-2 {
+                    fill: #7ed7ad;
+                    fill-rule: evenodd;
+                }
+            </style>
+        </defs>
+        <path d="M1.000,11.000 L-0.000,10.000 L-0.000,9.000 L2.000,7.000 L2.000,4.000 L-0.000,2.000 L-0.000,1.000 L1.000,-0.000 L12.000,5.000 L1.000,11.000 Z" class="cls-2"/>
+    </symbol>
+
+    <symbol id="gauge-arrow-outcoming" preserveAspectRatio="xMidYMid" viewBox="0 0 12 11">
+        <defs>
+            <style>
+                .cls-2-outcoming {
+                    fill: #7aa2ca;
+                    fill-rule: evenodd;
+                }
+            </style>
+        </defs>
+        <path d="M1.000,11.000 L-0.000,10.000 L-0.000,9.000 L2.000,7.000 L2.000,4.000 L-0.000,2.000 L-0.000,1.000 L1.000,-0.000 L12.000,5.000 L1.000,11.000 Z" class="cls-2-outcoming"/>
+    </symbol>
+
+    <symbol id="single-arrow" preserveAspectRatio="xMidYMid" viewBox="0 0 12 21">
+        <defs>
+            <style>
+                .cls-3 {
+                    fill: #7ed7ad;
+                    fill-rule: evenodd;
+                }
+            </style>
+        </defs>
+        <path d="M6.000,0.000 L12.000,6.000 L11.000,7.000 L10.000,7.000 L7.000,4.000 L7.000,20.000 L5.000,20.000 L5.000,4.000 L2.000,7.000 L1.000,7.000 L-0.000,6.000 L6.000,0.000 Z" class="cls-3"/>
+    </symbol>
+
+    <symbol id="single-arrow-outcoming" preserveAspectRatio="xMidYMid" viewBox="0 0 12 21">
+        <defs>
+            <style>
+                .cls-3-outcoming {
+                    fill: #7aa2ca;
+                }
+            </style>
+        </defs>
+        <path d="M6.000,0.000 L12.000,6.000 L11.000,7.000 L10.000,7.000 L7.000,4.000 L7.000,20.000 L5.000,20.000 L5.000,4.000 L2.000,7.000 L1.000,7.000 L-0.000,6.000 L6.000,0.000 Z" class="cls-3-outcoming"/>
+    </symbol>
+
+    <symbol id="single-arrow-done" preserveAspectRatio="xMidYMid" viewBox="0 0 12 21">
+        <defs>
+            <style>
+                .cls-3-done {
+                    fill: white;
+                    fill-rule: evenodd;
+                }
+            </style>
+        </defs>
+        <path d="M6.000,0.000 L12.000,6.000 L11.000,7.000 L10.000,7.000 L7.000,4.000 L7.000,20.000 L5.000,20.000 L5.000,4.000 L2.000,7.000 L1.000,7.000 L-0.000,6.000 L6.000,0.000 Z" class="cls-3-done"/>
+    </symbol>
+
+    <symbol id="single-top-arrow" preserveAspectRatio="xMidYMid" viewBox="0 0 12 21">
+        <defs>
+            <style>
+                .cls-4 {
+                    fill: #ceddec;
+                    fill-rule: evenodd;
+                }
+            </style>
+        </defs>
+        <path d="M6.000,0.000 L12.000,6.000 L11.000,7.000 L10.000,7.000 L7.000,4.000 L7.000,20.000 L5.000,20.000 L5.000,4.000 L2.000,7.000 L1.000,7.000 L-0.000,6.000 L6.000,0.000 Z" class="cls-4"/>
+    </symbol>
+
+</svg>            </div>
+        </div>
+    </div>
+
+    <link href="/css/speed.css?v=3.3" rel="stylesheet">
+    <style>
+        .modal {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.1);
+            transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+            z-index: 10000;
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 30px;
+
+            height: 600px;
+            width: 600px;
+
+            border-radius: 0.5rem;
+        }
+        .close-button {
+            float: right;
+            width: 1.5rem;
+            line-height: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 0.25rem;
+            background-color: lightgray;
+            position: relative;
+            z-index: 10001;
+        }
+            .close-button:hover {
+                background-color: darkgray;
+            }
+
+        .show-modal {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1.0);
+            transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+        }
+
+        .speed-link {
+            display: none;
+            font-size: 25px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .modal-counter {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            align-items: center;
+        }
+
+        /* ===== Counter ===== */
+
+        .counter {
+            /*transform: translate(-50%, -50%);*/
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .counter.hide {
+
+            transform: translate(-50%, -50%) scale(0);
+            animation: hide .2s ease-out;
+        }
+
+        @keyframes hide {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+        }
+
+        @keyframes show {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+
+            80% {
+                transform: translate(-50%, -50%) scale(1.4);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .nums {
+            color: #3498db;
+            height: 140px;
+            margin: 0 auto;
+            position: relative;
+            font-size: 150px;
+            overflow: hidden;
+            width: 250px;
+        }
+
+        .nums span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(120deg);
+            transform-origin: bottom center;
+        }
+
+        .nums span.in {
+            transform: translate(-50%, -50%) rotate(0deg);
+            animation: goIn .5s ease-in-out;
+        }
+
+        .nums span.out {
+            animation: goOut .5s ease-in-out;
+        }
+
+        @keyframes goIn {
+            0% {
+                transform: translate(-50%, -50%) rotate(120deg);
+            }
+            30% {
+                transform: translate(-50%, -50%) rotate(-20deg);
+            }
+
+            60% {
+                transform: translate(-50%, -50%) rotate(10deg);
+            }
+
+            90%, 100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
+
+        @keyframes goOut {
+            0%, 30% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            60% {
+                transform: translate(-50%, -50%) rotate(20deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(-120deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                border-radius: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            #speed-widget {
+                position: relative;
+                top: 45%;
+                transform: translateY(-50%);
+            }
+        }
+    </style>
+</script>
+
+<script type="text/javascript">
+	window.IP2 = {
+		measureMethod: 'wss',
+		platformUrl: 'wss://server-875.2ipcore.com:8002/ws',
+		platform: '875',
+		ui: {
+			duration: {
+				dl: 14000,
+				ul: 14000
+			}
+		},
+		resultsUrl: '2ip.ru/',
+		isWidget: true,
+        shouldShowFullPage: true,
+        viewVersion: '2',
+		city: '180'
+	};
+
+    let isEnabledSpeedTest = true;
+
+    function runAnimation() {
+        document.getElementById("speed-counter").style.display = 'block';
+        document.getElementById("speed-link").style.display = 'block';
+
+        let nums = document.querySelectorAll('.nums span');
+        let wrapper = document.getElementById('speed-counter-wrapper');
+        let widget = document.getElementById("speed-widget");
+
+        nums.forEach((num, idx) => {
+            const penultimate = nums.length - 1;
+
+            num.addEventListener('animationend', (e) => {
+                if(e.animationName === 'goIn' && idx !== penultimate){
+                    num.classList.remove('in');
+                    num.classList.add('out');
+                } else if (e.animationName === 'goOut' && num.nextElementSibling){
+                    num.nextElementSibling.classList.add('in');
+                } else {
+                    wrapper.style.display = 'none';
+                    widget.style.display = 'block';
+
+                    document.getElementById("speed-counter").style.display = 'none';
+                    document.getElementById("speed-link").style.display = 'none';
+
+                    if (isEnabledSpeedTest) {
+                        runTest()
+                    }
+                }
+            });
+        });
+    }
+
+    function openSpeedTest() {
+        // Render and append to body
+        let modalText = document.getElementById("speed-checker-modal");
+        if (modalText != null) {
+            document.body.insertAdjacentHTML('beforeend', modalText.innerText);
+            modalText.remove();
+        }
+
+        let modal = document.querySelector(".modal");
+        let wrapper = document.getElementById('speed-counter-wrapper');
+        let widget = document.getElementById("speed-widget");
+        let nums = document.querySelectorAll('.nums span');
+        let counter = document.querySelector('.counter');
+
+        const closeButton = document.querySelector(".close-button");
+        closeButton.addEventListener("click", closeSpeedTest);
+
+        nums = document.querySelectorAll('.nums span');
+        counter = document.querySelector('.counter');
+
+        // Reset DOM
+        wrapper.style.display = 'flex';
+        widget.style.display = 'none';
+
+        counter.classList.remove('hide');
+        nums.forEach(num => {
+            num.classList.value = '';
+        });
+        nums[0].classList.add('in');
+
+
+        isEnabledSpeedTest = true;
+        modal.classList.add("show-modal");
+        runAnimation()
+    }
+
+    function closeSpeedTest() {
+        let modal = document.querySelector(".modal");
+        isEnabledSpeedTest = false;
+        modal.classList.remove("show-modal");
+
+        if (typeof(window.IP2.engine) != "undefined") {
+            window.IP2.engine.terminate();
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const speedStartButton = document.getElementById("speed-start-button");
+        speedStartButton.addEventListener("click", openSpeedTest);
+    });
+</script>
+
+<script type="text/javascript" src="https://2ip.ru/js/speed-2017.min.js?v=1.2"></script>
+<script type="text/html" id="gauge_tmpl">
+    <% for ( var i = 0; i < 11; i++ ) { %>
+    <div class="st-gauge__label <%=className%>"><%=i*10+start%></div>
+    <% } %>
+</script>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-menu">
+            <ul>
+                            <li><a href="https://2ip.ru/registration/isp/">Провайдеру</a></li>
+                <li><a href="https://2ip.ru/adv/">Реклама</a></li>
+            
+                <li><a href="https://2ip.ru/add-ip/">Запрос на исправление данных GeoIP</a></li>
+                <li><a href="https://2ip.ru/disclaimer/">Соглашение</a></li>
+                <li><a href="https://2ip.ru/contact/">Обратная связь</a></li>
+
+            
+                <li class="footer-menu-language">
+                                            <a href="https://2ip.io/">
+                            EN
+                        </a>
+                    
+                                            <a href="https://2ip.io/ua/" class="footer-menu-language-border">
+                            UA
+                        </a>
+                    
+                                    </li>
+            </ul>
+        </div>
+
+        
+        <div class="copyright" aria-disabled="true">© 2006–2024 | <span aria-disabled="true">«2ip.ru»</span>. Все права защищены.</div>
+
+        <div class="scroll-top"><a href="#" title="Наверх"></a></div>
+
+        <div data-id="2ip" data-mysql-ping="ok"></div>
+    </div>
+</footer>
+</div>
+
+
+<div class="body-blackout"></div>
+</body>
+</html>
+
+
+Process finished with exit code 0
